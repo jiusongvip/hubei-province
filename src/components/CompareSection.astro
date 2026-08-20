@@ -1,0 +1,65 @@
+---
+const hubei = [
+  "Compact: Wuhan, Wudang, the Three Gorges and Enshi on one rail spine",
+  "Three Kingdoms history: Chibi, Jingzhou, Xiangyang and Longzhong",
+  "Taoist Wudang, the cradle of tai chi",
+  "The Three Gorges Dam and the Yangtze",
+  "Wuhan's guozao breakfast: hot dry noodles and doupi",
+];
+const hunan = [
+  "Zhangjiajie's sandstone pillars and the glass bridge",
+  "Spicier, bolder Hunan cuisine and Changsha's night markets",
+  "The ancient town of Fenghuang (Phoenix)",
+  "Mao Zedong's hometown at Shaoshan",
+  "Slightly further spread; rail still connects it well",
+];
+---
+<section id="compare" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12 text-center mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Hubei or Hunan?
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed">
+        The two central-China neighbors often get compared. Here is the honest split.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0 lg:divide-x lg:divide-stone-200">
+      <div class="lg:pr-10">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="w-9 h-9 rounded-full bg-brand-700 text-white font-bold flex items-center justify-center">鄂</span>
+          <h3 class="text-xl font-bold text-brand-800">Choose Hubei if...</h3>
+        </div>
+        <ul class="space-y-3">
+          {hubei.map((g) => (
+            <li class="flex gap-3 text-stone-700">
+              <svg class="w-5 h-5 text-brand-700 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-sm md:text-base leading-relaxed">{g}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="lg:pl-10">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="w-9 h-9 rounded-full bg-stone-200 text-stone-600 font-bold flex items-center justify-center">湘</span>
+          <h3 class="text-xl font-bold text-stone-700">Choose Hunan if...</h3>
+        </div>
+        <ul class="space-y-3">
+          {hunan.map((y) => (
+            <li class="flex gap-3 text-stone-600">
+              <svg class="w-5 h-5 text-stone-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span class="text-sm md:text-base leading-relaxed">{y}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 bg-stone-950 rounded-2xl p-8">
+      <p class="text-stone-200 text-base md:text-lg leading-relaxed max-w-4xl">
+        <span class="font-semibold text-white">The short answer:</span> choose Hubei for Three Kingdoms history, Taoist Wudang and the Three Gorges, all on one easy rail spine. Choose Hunan for Zhangjiajie's surreal sandstone and spicier food. The two are neighbors — Wuhan and Changsha are only about 1.5 hours apart by high-speed rail, so you can do both in a single trip.
+      </p>
+    </div>
+  </div>
+</section>

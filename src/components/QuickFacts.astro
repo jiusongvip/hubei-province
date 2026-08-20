@@ -1,0 +1,44 @@
+---
+const atAGlance = [
+  { value: "185,900", unit: "km²", label: "Area of Hubei", note: "About the size of Washington State (US)" },
+  { value: "58.3", unit: "million", label: "Population", note: "About the population of Italy" },
+  { value: "13", unit: "prefectures", label: "Prefecture-level divisions", note: "Wuhan, Yichang, Xiangyang, Jingzhou and more" },
+  { value: "1,000+", unit: "lakes", label: "The 'Province of a Thousand Lakes'", note: "China's most lake-rich province — 湖 (hú) means lake" },
+];
+
+const atYourTrip = [
+  { value: "7", unit: "days", label: "Recommended for the classics", note: "Wuhan, Wudang, the Three Gorges" },
+  { value: "3", unit: "directions", label: "From Wuhan", note: "Northwest · West · Southwest" },
+  { value: "200–700", unit: "CNY/day", label: "Daily budget", note: "Backpacker to mid-range" },
+  { value: "3,106", unit: "m", label: "Shennong Peak", note: "The 'roof of central China'" },
+];
+---
+<section class="bg-stone-950 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-xs font-semibold text-brand-400 uppercase tracking-[0.22em] mb-4">Hubei at a glance</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-800 overflow-hidden rounded-xl">
+      {atAGlance.map((f) => (
+        <div class="bg-stone-950 p-6">
+          <p class="text-3xl md:text-4xl font-bold text-brand-500 tracking-tight">
+            {f.value}<span class="text-stone-500 text-base font-medium ml-1">{f.unit}</span>
+          </p>
+          <p class="text-white font-semibold text-sm mt-2">{f.label}</p>
+          <p class="text-stone-500 text-xs mt-1">{f.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-xs font-semibold text-brand-400 uppercase tracking-[0.22em] mt-10 mb-4">Your trip, at a glance</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-800 overflow-hidden rounded-xl">
+      {atYourTrip.map((f) => (
+        <div class="bg-stone-950 p-6">
+          <p class="text-3xl md:text-4xl font-bold text-brand-500 tracking-tight">
+            {f.value}<span class="text-stone-500 text-base font-medium ml-1">{f.unit}</span>
+          </p>
+          <p class="text-white font-semibold text-sm mt-2">{f.label}</p>
+          <p class="text-stone-500 text-xs mt-1">{f.note}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

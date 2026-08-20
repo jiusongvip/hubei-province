@@ -1,0 +1,70 @@
+---
+const lakes = [
+  {
+    lake: "Hong Lake",
+    chinese: "洪湖",
+    region: "Jingzhou · eastern Hubei",
+    produce: "Lotus root",
+    dish: "Pork rib & lotus-root soup (排骨藕汤)",
+    body: "Hong Lake is Hubei's largest lake and China's most famous lotus-root region. The starchy root goes into the province's comfort-food signature — ribs simmered with lotus root until both turn soft and sweet.",
+  },
+  {
+    lake: "Qianjiang",
+    chinese: "潜江",
+    region: "Central Hubei",
+    produce: "Crayfish (xiaolongxia)",
+    dish: "Oily-braised crayfish (油焖大虾)",
+    body: "Qianjiang is China's crayfish capital. From May to September its crayfish — steamed plain or oily-braised with chili and garlic — are the reference standard for the whole country.",
+  },
+  {
+    lake: "Liangzi Lake",
+    chinese: "梁子湖",
+    region: "Wuhan · Ezhou",
+    produce: "Wuchang fish & hairy crab",
+    dish: "Steamed Wuchang fish (清蒸武昌鱼)",
+    body: "Liangzi Lake is the original home of the Wuchang fish (blunt-snout bream), steamed with ginger and scallion, and of Hubei's own hairy crab in autumn. The fish famous since the Three Kingdoms comes from here.",
+  },
+  {
+    lake: "The Three Gorges & Qingjiang",
+    chinese: "三峡 · 清江",
+    region: "Yichang · Enshi",
+    produce: "River fish",
+    dish: "Three Gorges fish hotpot (三峡鱼火锅)",
+    body: "The clear mountain waters of the Qingjiang and the Yangtze's gorges hold Hubei's freshest river fish, simmered in a clear broth so you taste the fish, not the chili.",
+  },
+];
+---
+<section id="lakes" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        The thousand lakes, on a plate
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        The 湖 (hú) in Hubei means "lake" — and it is not decoration. China's most lake-rich province eats what its water grows: lotus root, crayfish, Wuchang fish and hairy crab. Here is the lake-to-table map.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+      {lakes.map((l) => (
+        <div class="bg-stone-50 rounded-2xl border border-stone-200 p-7">
+          <div class="flex items-baseline justify-between gap-2">
+            <h3 class="text-lg font-bold text-stone-900">{l.lake} <span class="text-stone-400 font-medium text-sm">{l.chinese}</span></h3>
+            <span class="text-xs font-medium text-brand-700 shrink-0">{l.region}</span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 mt-2">{l.produce}</p>
+          <p class="text-stone-900 font-semibold text-sm mt-2">{l.dish}</p>
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed">{l.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-stone-950 rounded-2xl p-8">
+      <p class="text-brand-100 text-base md:text-lg leading-relaxed max-w-4xl">
+        <span class="font-semibold text-white">The taste of Hubei in one line:</span>
+        Hunan is fiery, Sichuan is numbing — Hubei is <span class="text-white font-semibold">fresh</span>.
+        Lotus root and river fish from a thousand lakes are the common thread under every dish above, and it is the one flavor the province has that its neighbors do not.
+      </p>
+    </div>
+  </div>
+</section>

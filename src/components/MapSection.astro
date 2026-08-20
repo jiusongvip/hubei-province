@@ -1,0 +1,90 @@
+---
+const directions = [
+  {
+    dir: "Northwest",
+    chinese: "鄂西北",
+    tag: "Wudang & Xiangyang",
+    note: "Taoist peaks and the Three Kingdoms' Longzhong",
+    stops: [
+      { name: "Wudang Mountains", chinese: "武当山", rel: "3 h by rail + shuttle" },
+      { name: "Xiangyang", chinese: "襄阳", rel: "1.5 h by rail" },
+    ],
+  },
+  {
+    dir: "West",
+    chinese: "鄂西",
+    tag: "The Yangtze spine",
+    note: "The dam, the gorges, the forest and the walled city",
+    stops: [
+      { name: "Jingzhou", chinese: "荆州", rel: "1 h by rail" },
+      { name: "Yichang · Three Gorges", chinese: "宜昌三峡", rel: "2 h by rail" },
+      { name: "Shennongjia", chinese: "神农架", rel: "4 h by road from Yichang" },
+    ],
+  },
+  {
+    dir: "Southwest",
+    chinese: "鄂西南",
+    tag: "Enshi",
+    note: "The Colorado-style canyon and Tujia culture",
+    stops: [
+      { name: "Enshi Grand Canyon", chinese: "恩施大峡谷", rel: "3.5 h by rail + shuttle" },
+    ],
+  },
+  {
+    dir: "Southeast",
+    chinese: "鄂东南",
+    tag: "Chibi",
+    note: "The Red Cliffs battlefield and hot springs",
+    stops: [
+      { name: "Chibi", chinese: "赤壁", rel: "40 min by rail" },
+    ],
+  },
+];
+---
+<section id="map" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Wuhan is the hub, everything else radiates
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Every Hubei trip starts in Wuhan, then fans out along the Yangtze. Four directions, all reachable by high-speed rail in a few hours.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Hub -->
+      <div class="lg:col-span-3">
+        <div class="bg-stone-950 rounded-2xl p-7 h-full flex flex-col justify-center">
+          <span class="w-3 h-3 rounded-full bg-brand-500 mb-4"></span>
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-400">The hub</p>
+          <h3 class="text-2xl font-bold text-white mt-1">Wuhan <span class="text-white/50 font-medium text-base">武汉</span></h3>
+          <p class="text-stone-400 text-sm mt-3 leading-relaxed">
+            The capital, the gateway and the breakfast capital. Every direction below starts and ends here.
+          </p>
+        </div>
+      </div>
+
+      <!-- Directions -->
+      <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {directions.map((d) => (
+          <div class="bg-white rounded-2xl border border-stone-200 p-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-bold text-stone-900">{d.dir} <span class="text-stone-400 font-medium text-sm">{d.chinese}</span></h3>
+            </div>
+            <p class="text-brand-700 text-sm font-medium mt-0.5">{d.tag}</p>
+            <p class="text-stone-500 text-xs mt-1">{d.note}</p>
+            <ul class="mt-4 space-y-2.5">
+              {d.stops.map((s) => (
+                <li class="flex items-baseline justify-between gap-3 text-sm">
+                  <span class="text-stone-700 font-medium">{s.name} <span class="text-stone-400 font-normal">{s.chinese}</span></span>
+                  <span class="text-stone-400 text-xs whitespace-nowrap shrink-0">{s.rel}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

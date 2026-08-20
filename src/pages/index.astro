@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import HeroSection from "../components/HeroSection.astro";
+import PageTOC from "../components/PageTOC.astro";
+import QuickFacts from "../components/QuickFacts.astro";
+import WhyHubei from "../components/WhyHubei.astro";
+import IsHubeiWorthIt from "../components/IsHubeiWorthIt.astro";
+import DirectionChooser from "../components/DirectionChooser.astro";
+import DestinationMatcher from "../components/DestinationMatcher.astro";
+import MapSection from "../components/MapSection.astro";
+import DestinationsSection from "../components/DestinationsSection.astro";
+import QuickMatrix from "../components/QuickMatrix.astro";
+import TripPlanner from "../components/TripPlanner.astro";
+import BudgetCalculator from "../components/BudgetCalculator.astro";
+import CostSection from "../components/CostSection.astro";
+import CompareSection from "../components/CompareSection.astro";
+import GuozaoSection from "../components/GuozaoSection.astro";
+import FoodSection from "../components/FoodSection.astro";
+import LakeFoodSection from "../components/LakeFoodSection.astro";
+import ShoppingSection from "../components/ShoppingSection.astro";
+import BestTimeSection from "../components/BestTimeSection.astro";
+import MonthlyWeatherSection from "../components/MonthlyWeatherSection.astro";
+import PackingSection from "../components/PackingSection.astro";
+import AccommodationSection from "../components/AccommodationSection.astro";
+import TransportSection from "../components/TransportSection.astro";
+import RailHubSection from "../components/RailHubSection.astro";
+import CruiseChooser from "../components/CruiseChooser.astro";
+import VisaSection from "../components/VisaSection.astro";
+import PlanSection from "../components/PlanSection.astro";
+import CultureSection from "../components/CultureSection.astro";
+import ThreeKingdomsSection from "../components/ThreeKingdomsSection.astro";
+import SafetySection from "../components/SafetySection.astro";
+import GallerySection from "../components/GallerySection.astro";
+import TrustSection from "../components/TrustSection.astro";
+import FAQSection from "../components/FAQSection.astro";
+import ChecklistSection from "../components/ChecklistSection.astro";
+import CTASection from "../components/CTASection.astro";
+import { faqs } from "../data/faq";
+import { destinations, itineraries } from "../data/destinations";
+import { faqSchema, attractionSchema } from "../utils/schema";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.hubei-province.com/#author",
+      name: "Wei Chen",
+      jobTitle: "Lead Writer & Hubei Specialist",
+      description:
+        "Independent travel writer who has crossed Hubei by high-speed rail, Yangtze ferry and mountain bus across more than a dozen visits.",
+      worksFor: {
+        "@type": "Organization",
+        name: "Hubei Province Travel Guide",
+        url: "https://www.hubei-province.com",
+      },
+    },
+    {
+      "@type": "Article",
+      headline: "Hubei Province Travel Guide 2026: Beyond Wuhan",
+      description:
+        "Plan your trip to Hubei Province, China. Discover Wuhan's Yellow Crane Tower, the Taoist Wudang Mountains, Shennongjia's forest, the Three Gorges Dam, Enshi Grand Canyon, hot dry noodles and Three Kingdoms history, with itineraries, budgets and insider tips.",
+      author: { "@id": "https://www.hubei-province.com/#author" },
+      datePublished: "2026-08-20",
+      dateModified: "2026-08-20",
+      image: "https://www.hubei-province.com/images/og-hubei.webp",
+    },
+    {
+      "@type": "TouristDestination",
+      name: "Hubei Province",
+      description:
+        "Comprehensive travel guide to Hubei Province, China. Discover the Wudang Mountains, the Three Gorges, Shennongjia, Enshi Grand Canyon, the Three Kingdoms heritage and Wuhan's food culture.",
+      touristType: ["History Travelers", "Nature Lovers", "Food Travelers", "Martial Arts Travelers", "Cultural Travelers"],
+      containedInPlace: { "@type": "Country", name: "China" },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.hubei-province.com" },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      name: "Hubei travel itineraries",
+      itemListElement: itineraries.map((it, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${it.days}-day Hubei itinerary: ${it.title}`,
+        description: `${it.route} — ${it.summary.join(" ")}`,
+      })),
+    },
+    ...attractionSchema(destinations),
+    {
+      "@type": "TouristTrip",
+      name: "The Three Kingdoms Trail of Hubei",
+      description: "A themed route through Hubei's Three Kingdoms sites: Longzhong, the Red Cliffs, Jingzhou and Wuchang.",
+      itinerary: {
+        "@type": "ItemList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Ancient Longzhong, Xiangyang (207 AD)" },
+          { "@type": "ListItem", position: 2, name: "Red Cliffs, Chibi (208 AD)" },
+          { "@type": "ListItem", position: 3, name: "Jingzhou Ancient City (219 AD)" },
+          { "@type": "ListItem", position: 4, name: "Wuchang, Wuhan (221 AD)" },
+        ],
+      },
+    },
+    {
+      "@type": "HowTo",
+      name: "How to eat guozao breakfast like a local in Wuhan",
+      description: "Four steps to eat Wuhan's guozao breakfast the local way: mix fast, stand, order the set, and say mild.",
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Mix it fast", text: "Hot dry noodles come with the sauce on top. Stir hard immediately so every strand gets coated before the sesame paste thickens." },
+        { "@type": "HowToStep", position: 2, name: "Stand, don't sit", text: "Eat standing at the stall or perched on a plastic stool. That is how Wuhan does breakfast — a table seat is optional." },
+        { "@type": "HowToStep", position: 3, name: "Order the set", text: "Order hot dry noodles plus a cup of soupy rice wine or a bowl of hufen soup. That is a complete guozao breakfast." },
+        { "@type": "HowToStep", position: 4, name: "Say mild (微辣)", text: "Ask for 微辣 (mild) on your first bowl. The chili oil is easy to over-order, and you can always add more." },
+      ],
+    },
+    faqSchema(faqs),
+  ],
+};
+---
+
+<BaseLayout
+  title="Hubei Province Travel Guide 2026: Beyond Wuhan"
+  description="Plan your Hubei trip beyond Wuhan: Wudang Mountains, Shennongjia forest, Three Gorges Dam, Enshi Grand Canyon, hot dry noodles and Three Kingdoms history."
+  ogType="website"
+>
+  <slot name="head">
+    <link rel="preload" as="image" href="/images/hubei-hero.webp" fetchpriority="high" />
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>
+  </slot>
+
+  <Nav />
+  <HeroSection />
+  <PageTOC />
+  <QuickFacts />
+  <IsHubeiWorthIt />
+  <WhyHubei />
+  <DirectionChooser />
+  <DestinationMatcher />
+  <MapSection />
+  <DestinationsSection />
+  <QuickMatrix />
+  <TripPlanner />
+  <BudgetCalculator />
+  <CostSection />
+  <CompareSection />
+  <GuozaoSection />
+  <FoodSection />
+  <LakeFoodSection />
+  <ShoppingSection />
+  <BestTimeSection />
+  <MonthlyWeatherSection />
+  <PackingSection />
+  <AccommodationSection />
+  <TransportSection />
+  <RailHubSection />
+  <CruiseChooser />
+  <VisaSection />
+  <PlanSection />
+  <CultureSection />
+  <ThreeKingdomsSection />
+  <SafetySection />
+  <GallerySection />
+  <TrustSection />
+  <FAQSection />
+  <ChecklistSection />
+  <CTASection />
+  <Footer />
+</BaseLayout>

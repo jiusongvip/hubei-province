@@ -1,0 +1,79 @@
+---
+const stayTypes = [
+  { type: "International hotels", price: "CNY 300-700", note: "Familiar brands in Wuhan and Yichang city centers. Reliable, English-speaking front desks and easy taxis." },
+  { type: "Boutique & riverside stays", price: "CNY 300-700", note: "Converted heritage buildings along Wuhan's Hankou riverfront and boutique hotels in Yichang. The character option." },
+  { type: "Mountain guesthouses", price: "CNY 150-400", note: "Family-run inns on Wudang's slopes, in Shennongjia's Muyu town and near the Enshi canyon. Basic English, huge views." },
+  { type: "Special stays", price: "CNY 300-800", note: "Xianning's hot-spring resorts, temple lodges on Wudang, and Dajiu Lake guesthouses for the Shennongjia sunrise." },
+];
+
+const areaAdvice = [
+  { place: "Wuhan", tip: "Stay in Hankou near the riverfront and Jianghan Road for the best breakfast streets, or in Wuchang near East Lake for the museum and quieter evenings. Wuhan is a base — two to three nights is enough." },
+  { place: "Wudang Mountains", tip: "Sleep on the mountain (near Nanyan or the summit area) if you want sunrise and quiet mornings; stay in the base town if you prefer comfort and an easy cable-car start." },
+  { place: "Shennongjia", tip: "Base in Muyu town for the widest choice, or stay near Dajiu Lake for the sunrise. Book ahead in the October peak — beds are limited." },
+  { place: "Yichang", tip: "Stay near the riverside promenade for the evening walk, or in the Xiling Gorge scenic area to be close to the gorge boat trips." },
+  { place: "Enshi", tip: "Base in Enshi city near the rail station for day trips, or stay near the canyon entrance for an early start before the tour groups." },
+  { place: "Jingzhou, Xiangyang & Chibi", tip: "These are short stops. Stay in the old-town or city-center hotels near the walls, or in a Xianning hot-spring resort if you pair Chibi with a soak." },
+];
+
+const bookingTips = [
+  "Book through Trip.com (the English version of Ctrip), Booking.com or Agoda. All handle foreign cards and passport check-in.",
+  "In rural areas (Shennongjia, Enshi), guesthouses often are not on international platforms. Message them on WeChat or book through a local driver for a small fee.",
+  "Ask for a quiet room: Hankou's breakfast streets and the areas near rail stations can be loud early in the morning.",
+  "In peak season (October and Chinese holidays), book Wudang, Shennongjia and the Three Gorges cruise at least a week ahead.",
+  "Many guesthouses will arrange the Wudang cable car, the dam tour and private drivers for the same price or less than online.",
+];
+---
+<section id="stay" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Where to stay in Hubei
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        From Wuhan's riverside boutiques to Wudang's temple lodges, Hubei's best beds are often its simplest. Here is how to choose, area by area.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+      {stayTypes.map((s) => (
+        <div class="bg-stone-50 rounded-2xl border border-stone-200 p-6">
+          <p class="font-semibold text-stone-900">{s.type}</p>
+          <p class="text-xs font-medium text-brand-700 mt-1">{s.price}</p>
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed">{s.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden mb-6 group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Where to stay in each area
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7 space-y-5">
+        {areaAdvice.map((a) => (
+          <div>
+            <p class="font-semibold text-stone-900">{a.place}</p>
+            <p class="text-sm text-stone-600 mt-1.5 leading-relaxed">{a.tip}</p>
+          </div>
+        ))}
+      </div>
+    </details>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Booking tips for foreign travelers
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7">
+        <ul class="space-y-3">
+          {bookingTips.map((t) => (
+            <li class="flex gap-3 text-sm text-stone-600 leading-relaxed">
+              <svg class="w-5 h-5 text-brand-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>

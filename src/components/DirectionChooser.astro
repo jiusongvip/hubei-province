@@ -1,0 +1,77 @@
+---
+const directions = [
+  {
+    id: "northwest",
+    label: "Northwest",
+    chinese: "鄂西北",
+    title: "Wudang + Shennongjia",
+    days: "3–4 days",
+    vibe: "Taoist temples, tai chi and primeval forest",
+    body: "The spiritual and wild corner: climb Wudang's temples, then drive into Shennongjia's forest for golden monkeys and the Dajiu Lake wetlands. One rail line from Wuhan, then a private car.",
+    img: "/images/wudang-palace.webp",
+    tags: ["Taoism", "Tai chi", "Forest", "Wildlife"],
+  },
+  {
+    id: "west",
+    label: "West",
+    chinese: "鄂西",
+    title: "Yichang & the Three Gorges",
+    days: "1–2 days",
+    vibe: "The dam, Xiling Gorge and the Yangtze",
+    body: "The engineering headline and the river that carved China: the Three Gorges Dam, a boat into Xiling Gorge, and the poet Qu Yuan's hometown. The easiest direction from Wuhan, just two hours by rail.",
+    img: "/images/three-gorges-dam.webp",
+    tags: ["Three Gorges Dam", "River cruise", "Engineering"],
+  },
+  {
+    id: "southwest",
+    label: "Southwest",
+    chinese: "鄂西南",
+    title: "Enshi Grand Canyon",
+    days: "2–3 days",
+    vibe: "A Colorado-style canyon and Tujia culture",
+    body: "Hubei's most underrated corner: the Enshi Grand Canyon and its 150m stone pillar, the Qingjiang Gallery, and the Tujia and Miao villages. Fewer crowds, less English, more raw China.",
+    img: "/images/enshi-canyon.webp",
+    tags: ["Canyon", "Caves", "Tujia culture", "Hiking"],
+  },
+];
+---
+<section id="direction" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Hubei's three directions
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hubei's top sights split across three directions from Wuhan. Pick one and the rest of the route writes itself — this is the decision every other guide leaves you to make alone.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {directions.map((d) => (
+        <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src={d.img} alt={`${d.title}, ${d.chinese} direction of Hubei`} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute top-4 left-4 px-3 py-1 bg-brand-700/90 text-white text-xs font-semibold rounded-full">{d.days}</div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">{d.label} <span class="text-stone-400">{d.chinese}</span></p>
+            <h3 class="text-xl font-bold text-stone-900 mt-1">{d.title}</h3>
+            <p class="text-sm text-stone-500 mt-1">{d.vibe}</p>
+            <p class="text-sm text-stone-600 mt-4 leading-relaxed flex-1">{d.body}</p>
+            <div class="flex flex-wrap gap-2 mt-5">
+              {d.tags.map((t) => (
+                <span class="px-2.5 py-1 bg-brand-50 text-brand-800 text-xs font-medium rounded-full border border-brand-100">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 bg-stone-950 rounded-2xl p-8">
+      <p class="text-brand-100 text-base md:text-lg leading-relaxed max-w-4xl">
+        <span class="font-semibold text-white">If you only have one direction:</span> first-time visitors should take the west (the Three Gorges, 1-2 days), culture and martial-arts travelers the northwest (Wudang + Shennongjia, 3-4 days), and hikers who want China beyond the postcards the southwest (Enshi, 2-3 days). Wuhan is the hub for all three.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+const souvenirs = [
+  { name: "Instant hot dry noodles", chinese: "热干面速食包", price: "CNY 8-15/pack", note: "The easiest souvenir to love. Buy a few brands at any Wuhan supermarket and compare the sesame sauce at home." },
+  { name: "Duck neck (Zhouheiya / Jingwu)", chinese: "鸭脖", price: "CNY 20-60", note: "Vacuum-packed spiced duck neck travels well and is the taste of Wuhan. Zhouheiya and Jingwu are the trusted brands." },
+  { name: "Xiaogan sesame candy", chinese: "孝感麻糖", price: "CNY 15-40", note: "A crisp sesame and maltose candy from Xiaogan, sweet and nutty. A classic Hubei gift that keeps for weeks." },
+  { name: "Honghu lotus products", chinese: "洪湖莲藕", price: "CNY 30-100", note: "Dried lotus root, lotus-seed paste and lotus-root starch (藕粉) from the 'thousand lakes'. The edible symbol of Hubei." },
+  { name: "Enshi Yulu tea", chinese: "恩施玉露", price: "CNY 100-500", note: "A steamed green tea from Enshi, one of China's rare steam-fixed teas. Buy loose from a tea shop that lets you taste first." },
+  { name: "Wudang Taoist tea", chinese: "武当道茶", price: "CNY 50-200", note: "Green tea grown on the Wudang slopes, sold at tea houses near the temples. Light and fragrant." },
+];
+
+const tips = [
+  "Supermarkets (Walmart, RT-Mart) are the best place for hot-dry-noodle packs, duck neck and sesame candy at local prices.",
+  "For Enshi Yulu and Wudang tea, go to a specialist tea shop and taste before you buy — never from scenic-spot stalls.",
+  "Bargain politely at markets, but expect fixed prices in shops. Start around 70% of the asking price in tourist areas.",
+  "Check airline rules before buying liquids (rice wine, chili oil) or large loose-tea bags.",
+  "Duck neck and instant noodles are fine in checked luggage; fresh lotus root is not — stick to the dried and vacuum-packed versions.",
+];
+---
+<section id="shopping" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        What to bring home
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hot-dry-noodle packs, duck neck, lotus products and tea — Hubei's souvenirs are better than fridge magnets. Here is what to buy and where.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      {souvenirs.map((s) => (
+        <div class="bg-stone-50 rounded-2xl border border-stone-200 p-6">
+          <div class="flex items-baseline justify-between gap-2">
+            <h3 class="font-bold text-stone-900">{s.name} <span class="text-stone-400 font-medium text-sm">{s.chinese}</span></h3>
+            <span class="text-xs font-medium text-brand-700 shrink-0">{s.price}</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">{s.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Shopping tips
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7">
+        <ul class="space-y-3">
+          {tips.map((t) => (
+            <li class="flex gap-3 text-sm text-stone-600 leading-relaxed">
+              <svg class="w-5 h-5 text-brand-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>

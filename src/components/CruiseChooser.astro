@@ -1,0 +1,83 @@
+---
+const cabins = [
+  {
+    name: "Standard cabin",
+    chinese: "标准舱",
+    price: "CNY 800-1,200",
+    nights: "3-4 nights",
+    note: "No window or a small one. Fine if you plan to be on deck all day, but tight for a family and you will feel it on the overnight stretches.",
+    for: "Budget travelers who live on deck",
+  },
+  {
+    name: "Balcony cabin",
+    chinese: "阳台舱",
+    price: "CNY 1,500-2,500",
+    nights: "3-4 nights",
+    note: "The sweet spot: a private balcony to watch the gorges slide past from your own rail. Worth the premium for most travelers, and it sells out first in autumn.",
+    for: "Most travelers — the best value",
+  },
+  {
+    name: "Suite",
+    chinese: "套房",
+    price: "CNY 3,000-6,000",
+    nights: "3-4 nights",
+    note: "A larger room, lounge access and better dining. Nice, but the real scenery is the same for every cabin — you are paying for comfort, not a better view.",
+    for: "Comfort-first travelers and special occasions",
+  },
+];
+
+const tips = [
+  "The classic route is Chongqing → Yichang (downstream, 3-4 nights), or Yichang → Chongqing (upstream, an extra night). Most travelers prefer the downstream run.",
+  "Cruises run roughly March to November. October is peak: the water is high and the skies are clear — book a month ahead.",
+  "The cruise includes the gorge sailing and meals, but most onshore excursions (the dam, the tributary boats) cost extra — budget CNY 200-400 per excursion.",
+  "If you only want the scenery, a day trip from Yichang to the Three Gorges Dam plus a boat into Xiling Gorge gives you the essence for a fraction of the price.",
+];
+---
+<section id="cruise" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        The Yangtze cruise, decoded
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        The Three Gorges cruise is Hubei's one big-ticket decision. Here is how to choose a cabin, a season and whether it is worth it at all.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      {cabins.map((c, i) => (
+        <div class={`rounded-2xl border p-7 ${i === 1 ? "border-brand-600 bg-brand-50/50" : "border-stone-200 bg-white"}`}>
+          <div class="flex items-baseline justify-between gap-2">
+            <h3 class="text-lg font-bold text-stone-900">{c.name} <span class="text-stone-400 font-medium text-sm">{c.chinese}</span></h3>
+          </div>
+          <p class="text-2xl font-bold text-brand-700 mt-2">{c.price}</p>
+          <p class="text-xs text-stone-400 mt-0.5">{c.nights}, per person</p>
+          <p class="text-sm text-stone-600 mt-4 leading-relaxed">{c.note}</p>
+          <p class="text-xs font-medium text-brand-700 mt-4 uppercase tracking-wider">{c.for}</p>
+        </div>
+      ))}
+    </div>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Cruise tips and the honest verdict
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7">
+        <ul class="space-y-3 mb-6">
+          {tips.map((t) => (
+            <li class="flex gap-3 text-sm text-stone-600 leading-relaxed">
+              <svg class="w-5 h-5 text-brand-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="bg-stone-950 rounded-xl p-6">
+          <p class="text-brand-100 text-sm md:text-base leading-relaxed">
+            <span class="font-semibold text-white">The verdict:</span> the cruise is a relaxing, scenic way to see the gorges, but the views repeat and the cabin quality matters less than you would think. If you want the experience without three nights aboard, do the Yichang day trip instead — you get the dam and Xiling Gorge for a fraction of the price.
+          </p>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# AI search crawlers (GEO): explicitly allow indexing for AI answers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.hubei-province.com/sitemap-index.xml

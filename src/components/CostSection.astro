@@ -1,0 +1,60 @@
+---
+const groups = [
+  {
+    title: "Cruises and boats",
+    items: [
+      { name: "Three Gorges cruise (3-4 nights)", price: "CNY 800-1,500+" },
+      { name: "Xiling Gorge boat trip", price: "CNY 150-250" },
+      { name: "Qingjiang Gallery boat (Enshi)", price: "CNY 150-200" },
+      { name: "Yangtze night cruise (Wuhan)", price: "CNY 120" },
+    ],
+  },
+  {
+    title: "Entry tickets",
+    items: [
+      { name: "Yellow Crane Tower", price: "CNY 70" },
+      { name: "Wudang Mountains (scenic area)", price: "CNY 240" },
+      { name: "Shennongjia (Shennong Peak)", price: "CNY 130" },
+      { name: "Enshi Grand Canyon", price: "CNY 155" },
+      { name: "Hubei Provincial Museum", price: "Free" },
+    ],
+  },
+  {
+    title: "Transport",
+    items: [
+      { name: "Wudang cable car (round trip)", price: "CNY 150" },
+      { name: "Wuhan-Yichang high-speed rail", price: "CNY 100-150" },
+      { name: "Wuhan-Shiyan (Wudang) rail", price: "CNY 150-200" },
+      { name: "Private driver (Shennongjia/Enshi)", price: "CNY 400-600/day" },
+    ],
+  },
+];
+---
+<section class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        What the big items cost
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        The handful of fixed costs that drive most of a Hubei budget. 2026 prices, per person.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {groups.map((g) => (
+        <div class="bg-white rounded-2xl border border-stone-200 p-6">
+          <h3 class="font-bold text-stone-900">{g.title}</h3>
+          <ul class="mt-4 space-y-3">
+            {g.items.map((it) => (
+              <li class="flex items-baseline justify-between gap-3">
+                <span class="text-sm text-stone-600">{it.name}</span>
+                <span class="text-sm font-semibold text-brand-700 shrink-0">{it.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

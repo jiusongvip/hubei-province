@@ -1,0 +1,47 @@
+---
+import { itineraries } from "../data/destinations";
+const budgetHint: Record<number, string> = {
+  3: "CNY 1,500",
+  5: "CNY 2,600",
+  7: "CNY 3,600",
+  10: "CNY 5,200",
+};
+---
+<section id="itineraries" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Pick your days, see the route
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Start in Wuhan and work west. Four lengths, from a city weekend to the full loop.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {itineraries.map((it) => (
+        <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col">
+          <div class="bg-stone-950 px-7 py-5 flex items-baseline justify-between">
+            <div>
+              <p class="text-brand-400 text-xs font-semibold uppercase tracking-wider">{it.days}-day trip · {it.subtitle}</p>
+              <h3 class="text-xl font-bold text-white mt-1">{it.title}</h3>
+            </div>
+            <p class="text-brand-500 text-sm font-bold whitespace-nowrap shrink-0 ml-4">{budgetHint[it.days]}</p>
+          </div>
+          <div class="p-7 flex flex-col flex-1">
+            <p class="text-brand-700 text-sm font-semibold">{it.route}</p>
+            <ul class="mt-4 space-y-3 flex-1">
+              {it.summary.map((s) => (
+                <li class="flex gap-3 text-stone-700">
+                  <svg class="w-5 h-5 text-brand-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span class="text-sm md:text-base leading-relaxed">{s}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-xs text-stone-400 mt-5 pt-4 border-t border-stone-100">{it.bestFor} · roughly {budgetHint[it.days]} mid-range, before the big extras</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+const options = [
+  {
+    badge: "Visa-free",
+    who: "76 countries",
+    detail:
+      "Citizens of 76 countries can enter China visa-free. If your passport is on the list, you can fly straight into Wuhan and start traveling — no visa, no paperwork.",
+  },
+  {
+    badge: "240-hour transit",
+    who: "55 countries",
+    detail:
+      "Travelers from 55 countries can use the 240-hour (10-day) transit visa-free policy. Wuhan is one of the 65 entry ports, so you can land in Wuhan, tour Hubei, and fly out from an approved port — no visa needed.",
+    highlight: true,
+  },
+  {
+    badge: "Standard visa",
+    who: "Everyone else",
+    detail:
+      "If your nationality is not on either list, apply for a standard Chinese tourist (L) visa before you travel. The process usually takes about a week once your documents are in.",
+  },
+];
+---
+<section id="visa" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Do you need a visa for Hubei?
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        For most travelers, the answer is no. China's visa-free and transit policies make Hubei one of the easiest provinces to reach — Wuhan is an official entry port.
+      </p>
+    </div>
+
+    <div class="bg-stone-950 rounded-2xl p-8 mb-8">
+      <p class="text-brand-100 text-lg md:text-xl leading-relaxed max-w-4xl">
+        <span class="font-semibold text-white">The short version:</span>
+        citizens of <span class="text-white font-semibold">76 countries</span> enter China visa-free, and travelers from
+        <span class="text-white font-semibold">55 more</span> can use the 240-hour (10-day) transit visa-free policy through Wuhan.
+        Always confirm your nationality against the latest official list before booking.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+      {options.map((o) => (
+        <div class={`rounded-2xl border p-7 ${o.highlight ? "border-brand-600 bg-brand-50/50" : "border-stone-200 bg-white"}`}>
+          <p class="text-xs font-bold uppercase tracking-wider text-brand-700">{o.badge}</p>
+          <p class="text-lg font-bold text-stone-900 mt-2">{o.who}</p>
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed">{o.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-white rounded-2xl border border-stone-200 p-7">
+      <p class="text-sm text-stone-600 leading-relaxed">
+        <span class="font-medium text-stone-800">How the 240-hour transit works for Hubei:</span>
+        fly into Wuhan Tianhe (WUH), travel within the permitted area for up to 10 days, then fly out from an approved port. You must hold an onward ticket to a third country or region when you enter — the policy is for transit, not for round trips to and from the same country.
+      </p>
+      <p class="text-xs text-stone-400 mt-4">
+        Visa rules change. Check your nationality against the latest list from the
+        <a href="https://www.nia.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-800 underline">National Immigration Administration</a>
+        before booking anything.
+      </p>
+    </div>
+  </div>
+</section>

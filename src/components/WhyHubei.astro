@@ -1,0 +1,76 @@
+---
+const pillars = [
+  {
+    no: "01",
+    dir: "Far west",
+    title: "Shennongjia forest",
+    chinese: "神农架",
+    body: "China's only triple-UNESCO site: primeval forest, golden monkeys and the misty Dajiu Lake wetlands.",
+    img: "/images/shennongjia-forest.webp",
+    alt: "Misty primeval forest at Shennongjia, Hubei",
+  },
+  {
+    no: "02",
+    dir: "Northwest",
+    title: "Taoist Wudang",
+    chinese: "武当山",
+    body: "The cradle of tai chi and Taoist martial arts, a UNESCO complex of Ming palaces across misty peaks.",
+    img: "/images/wudang-palace.webp",
+    alt: "Taoist temple halls at Wudang Mountains, Hubei",
+  },
+  {
+    no: "03",
+    dir: "West",
+    title: "The Three Gorges",
+    chinese: "长江三峡",
+    body: "The Yangtze's great canyon and the world's largest dam, with Xiling Gorge entirely within Hubei.",
+    img: "/images/three-gorges-dam.webp",
+    alt: "The Yangtze Three Gorges and the dam near Yichang",
+  },
+  {
+    no: "04",
+    dir: "East",
+    title: "A thousand lakes",
+    chinese: "千湖之省",
+    body: "The 'province of a thousand lakes' and the cradle of the Chu kingdom — chime bells, Red Cliffs, the Three Kingdoms.",
+    img: "/images/east-lake-wuhan.webp",
+    alt: "East Lake and river scenery in Wuhan, Hubei",
+  },
+];
+---
+<section id="why" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Four worlds, one river
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hubei hangs on the Yangtze, which flows west to east through the whole province. Read it like a river: forest and Taoist peaks in the west, the gorges in the middle, the thousand-lake heartland in the east.
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- The Yangtze spine -->
+      <div class="absolute top-6 left-6 right-6 h-px bg-gradient-to-r from-brand-200 via-brand-500 to-brand-200 hidden lg:block" aria-hidden="true"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pillars.map((p) => (
+          <a href="#destinations" class="group relative">
+            <div class="flex items-center gap-3 mb-4 relative z-10">
+              <span class="w-3 h-3 rounded-full bg-brand-700 ring-4 ring-brand-100 group-hover:bg-brand-500 transition-colors"></span>
+              <span class="text-xs font-semibold text-brand-700 uppercase tracking-wider">{p.no} · {p.dir}</span>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-stone-200 group-hover:border-brand-300 transition-colors">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src={p.img} alt={p.alt} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
+              </div>
+              <div class="p-5">
+                <h3 class="text-lg font-bold text-stone-900">{p.title} <span class="text-stone-400 font-medium text-sm">{p.chinese}</span></h3>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">{p.body}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

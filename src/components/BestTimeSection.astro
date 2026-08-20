@@ -1,0 +1,37 @@
+---
+const seasons = [
+  { when: "Apr–May", label: "Spring", body: "Mild and green. Wuhan's cherry trees bloom, and the mountains are lush without the summer heat.", good: true },
+  { when: "Sep–Nov", label: "Autumn", body: "Clear skies and crisp air — the clearest views of the gorges and Shennongjia's forests. October is peak.", good: true },
+  { when: "Jul–Aug", label: "Summer", body: "Wuhan hits 36-40°C. The mountains (Shennongjia, Enshi) are the escape, and it is crayfish season.", good: false },
+  { when: "Dec–Feb", label: "Winter", body: "Cold and damp, but fine for museums, hot springs and the cities. Wudang can see snow.", good: false },
+];
+---
+<section id="best-time" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        When to go
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hubei has a real summer and a damp winter, so timing matters. Spring and autumn are the sweet spots; summer only for the mountains, winter only for the cities.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {seasons.map((s) => (
+        <div class={`rounded-2xl border p-6 ${s.good ? "border-brand-200 bg-brand-50/40" : "border-stone-200 bg-stone-50"}`}>
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-stone-900">{s.label}</h3>
+            {s.good ? (
+              <span class="px-2 py-0.5 bg-brand-700 text-white text-xs font-semibold rounded-full">Best</span>
+            ) : (
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-500 text-xs font-semibold rounded-full">Avoid</span>
+            )}
+          </div>
+          <p class="text-brand-700 text-sm font-semibold mt-1">{s.when}</p>
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed">{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

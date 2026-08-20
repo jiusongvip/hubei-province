@@ -1,0 +1,84 @@
+---
+const seasons = [
+  {
+    season: "Spring",
+    months: "March to May",
+    temp: "15-25°C",
+    wear: "Light layers and a light rain jacket. Spring is mild but changeable, with occasional rain and the tail of the winter damp.",
+    note: "One of the two best windows. Wuhan's cherry and plum trees bloom, and the mountains turn green.",
+  },
+  {
+    season: "Summer",
+    months: "June to August",
+    temp: "28-40°C",
+    wear: "Breathable, quick-dry clothes, sunscreen, a hat and a lot of water. Wuhan is a 'furnace', and afternoon thunderstorms are common.",
+    note: "The hottest season. Head to Shennongjia and Enshi for cooler mountain air; avoid midday city sightseeing.",
+  },
+  {
+    season: "Autumn",
+    months: "September to November",
+    temp: "15-28°C",
+    wear: "T-shirts for the day, a light jacket for the evening. The most comfortable season by far.",
+    note: "The other sweet spot. Clear skies over the Three Gorges and Shennongjia. October is peak — book ahead.",
+  },
+  {
+    season: "Winter",
+    months: "December to February",
+    temp: "0-10°C",
+    wear: "A warm mid-layer and a proper jacket. The cold is damp and feels chillier than the number, and indoor heating is uneven.",
+    note: "Quiet and cold. Fine for museums, hot springs and the cities; Wudang can see snow. Pack for indoors too.",
+  },
+];
+
+const packList = [
+  "Grippy walking shoes: Wudang's temple stairs and Enshi's canyon paths are steep and can be slick when wet.",
+  "A light rain jacket: rain is possible in spring and summer, and mountain weather changes fast.",
+  "Sunscreen and a hat: summer heat is intense, especially in Wuhan.",
+  "A warm layer even in spring and autumn: evenings cool down, and winter indoors often lack strong heating.",
+  "An offline translation app and a printed allergy or dietary card if you have restrictions.",
+  "A universal plug adapter (China uses Type A/C/I sockets) and a power bank for long rail and mountain days.",
+];
+---
+<section id="packing" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Weather and what to pack
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hubei has a real furnace of a summer and a damp winter, so what you pack changes a lot by season. Here is what to wear each season and what to throw in the bag.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+      {seasons.map((s) => (
+        <div class="bg-white rounded-2xl border border-stone-200 p-7">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-lg font-bold text-stone-900">{s.season}</h3>
+            <span class="text-sm font-medium text-brand-700">{s.temp}</span>
+          </div>
+          <p class="text-xs text-stone-400 mt-0.5">{s.months}</p>
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed"><span class="font-medium text-stone-800">Wear:</span> {s.wear}</p>
+          <p class="text-sm text-stone-500 mt-2 leading-relaxed">{s.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        The six-item packing list
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7">
+        <ul class="space-y-3">
+          {packList.map((p) => (
+            <li class="flex gap-3 text-sm text-stone-600 leading-relaxed">
+              <svg class="w-5 h-5 text-brand-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>

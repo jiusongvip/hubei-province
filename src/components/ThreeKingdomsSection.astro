@@ -1,0 +1,83 @@
+---
+const stops = [
+  {
+    year: "207 AD",
+    name: "Ancient Longzhong, Xiangyang",
+    chinese: "古隆中 · 襄阳",
+    event: "Three Visits to the Thatched Cottage",
+    body: "Where the young Zhuge Liang lived in seclusion, and where Liu Bei made his three famous visits to persuade him to serve. The reconstructed thatched cottage, lotus ponds and hillside pavilions sit among the Longzhong hills.",
+    days: "Half day",
+    img: "/images/xiangyang-wall.webp",
+  },
+  {
+    year: "208 AD",
+    name: "Red Cliffs, Chibi",
+    chinese: "赤壁古战场",
+    event: "The Battle of Red Cliffs",
+    body: "The naval battle where the allied forces of Sun Quan and Liu Bei burned Cao Cao's fleet and halted his southward conquest — the turning point that defined the Three Kingdoms era. A riverside park with the Red Cliff inscription and a Zhou Yu statue.",
+    days: "Half day + hot springs",
+    img: "/images/chibi-river.webp",
+  },
+  {
+    year: "219 AD",
+    name: "Jingzhou Ancient City",
+    chinese: "荆州古城",
+    event: "Guan Yu's city",
+    body: "The walled city Guan Yu was tasked to defend, and where his cult still lives in the Guandi Temple. Walk the Ming walls above the gates, then see the Chu bronzes and the Western Han mummy in the Jingzhou Museum.",
+    days: "1 day",
+    img: "/images/jingzhou-wall.webp",
+  },
+  {
+    year: "221 AD",
+    name: "Wuchang, Wuhan",
+    chinese: "武昌 · 武汉",
+    event: "Sun Quan's capital",
+    body: "Before Nanjing, Sun Quan made his capital at Wuchang (modern Wuhan). Today the Yellow Crane Tower looks down on the Yangtze the Three Kingdoms fought over, and the provincial museum holds the era's bronzes.",
+    days: "Part of a Wuhan stay",
+    img: "/images/wuhan-yangtze.webp",
+  },
+];
+---
+<section id="three-kingdoms" class="py-20 md:py-28 bg-stone-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white pb-1">
+        The Three Kingdoms trail
+      </h2>
+      <p class="text-brand-100/80 text-lg mt-4 leading-relaxed max-w-2xl">
+        More than 70 of the Romance of the Three Kingdoms' 120 chapters unfold in Hubei. If you know the story — or have played <span class="text-white font-semibold">Total War: Three Kingdoms</span> or <span class="text-white font-semibold">Dynasty Warriors</span> — this is the province where it actually happened. Follow the trail in four stops.
+      </p>
+    </div>
+
+    <div class="relative border-l-2 border-dashed border-brand-700/60 pl-8 space-y-10">
+      {stops.map((s) => (
+        <div class="relative">
+          <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-2 border-brand-950"></span>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-4">
+              <p class="text-xs font-semibold uppercase tracking-wider text-brand-300">{s.year}</p>
+              <h3 class="text-xl font-bold text-white mt-1">{s.name} <span class="text-white/50 font-medium text-base">{s.chinese}</span></h3>
+              <p class="text-brand-200 font-medium text-sm mt-1">{s.event}</p>
+              <p class="inline-flex items-center gap-1.5 text-xs text-white/60 mt-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {s.days}
+              </p>
+            </div>
+            <div class="lg:col-span-8">
+              <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                <img src={s.img} alt={`${s.name} ${s.chinese}`} class="w-full h-48 object-cover" loading="lazy" decoding="async" />
+                <p class="p-5 text-white/75 text-sm leading-relaxed">{s.body}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 bg-white/5 border border-white/10 rounded-2xl p-6">
+      <p class="text-brand-100 text-sm md:text-base leading-relaxed">
+        <span class="font-semibold text-white">Route it:</span> Xiangyang (Longzhong) → Wudang can share a day, then ride the rail east to Jingzhou and Wuhan, and dip south to Chibi. A Three Kingdoms loop from Wuhan takes 3-4 days by high-speed rail.
+      </p>
+    </div>
+  </div>
+</section>

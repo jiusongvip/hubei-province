@@ -1,0 +1,100 @@
+---
+const dishes = [
+  { name: "Hot dry noodles", chinese: "热干面", place: "Wuhan", price: "CNY 6-10", note: "The guozao icon: alkaline noodles in sesame paste, soy and chili. See the guozao section above for the full ritual." },
+  { name: "Doupi", chinese: "豆皮", place: "Wuhan", price: "CNY 8-15", note: "A pan-fried square of sticky rice, egg and bean skin with minced pork and bamboo shoot. Crisp outside, soft inside." },
+  { name: "Wuchang fish", chinese: "武昌鱼", place: "Wuhan", price: "CNY 60-120", note: "A freshwater bream from the Yangtze, steamed with ginger and scallion. The dish to order for a sit-down dinner." },
+  { name: "Duck neck", chinese: "鸭脖", place: "Wuhan", price: "CNY 20-40", note: "Spiced, braised duck neck — the snack Wuhan snacks on all day. Zhouheiya and Jingwu are the trusted brands." },
+  { name: "Lotus root & rib soup", chinese: "排骨藕汤", place: "Hubei", price: "CNY 30-60", note: "Pork ribs simmered with the 'thousand lakes' lotus root. Hubei's comfort-food signature." },
+  { name: "Crayfish", chinese: "小龙虾", place: "Qianjiang · summer", price: "CNY 80-150", note: "Hubei is China's crayfish capital, and Qianjiang's are the reference. Steamed or spicy, from May to September." },
+  { name: "Jingzhou fish cake", chinese: "鱼糕", place: "Jingzhou", price: "CNY 30-60", note: "Pounded freshwater fish steamed into a soft cake, served in soup or stir-fried. Delicate and unlike anything in Wuhan." },
+  { name: "Xiangyang beef noodles", chinese: "襄阳牛肉面", place: "Xiangyang", price: "CNY 10-20", note: "Hand-pulled noodles in a rich, spicy beef broth. The city's breakfast, worth the stop alone." },
+  { name: "Three Gorges fish hotpot", chinese: "三峡鱼火锅", place: "Yichang", price: "CNY 80-160", note: "Fresh Yangtze fish simmered in a clear or spicy broth. Order the clear broth to taste the fish." },
+  { name: "Hezha", chinese: "合渣", place: "Enshi", price: "CNY 15-30", note: "A Tujia staple: pounded soybeans cooked with greens. Cheap, filling and the taste of Enshi's countryside." },
+];
+
+const cityFoods = [
+  { city: "Wuhan", items: "Hot dry noodles, doupi, Wuchang fish, duck neck, lotus root & rib soup, crayfish in summer" },
+  { city: "Yichang", items: "Three Gorges fish hotpot, liangxia (凉虾) sweet rice drink" },
+  { city: "Enshi", items: "Hezha, kang potatoes (炕土豆), Tujia cured meat" },
+  { city: "Jingzhou", items: "Fish cake, Gong'an guokui stuffed flatbread" },
+  { city: "Xiangyang", items: "Beef noodles, yellow rice wine" },
+  { city: "Qianjiang & Xianning", items: "Crayfish (summer), Chibi fish balls, bamboo-shoot dishes" },
+];
+
+const dietNotes = [
+  { title: "Vegetarian and vegan", body: "Possible but plan ahead. Lotus-root and vegetable dishes are common, and tofu (including Wuhan's doupi and Enshi's hezha) is everywhere. Carry a note saying 我吃素 (I eat vegetarian)." },
+  { title: "Halal", body: "Halal restaurants exist in Wuhan, marked with a green 清真 sign, and in other larger cities. In small towns, stick to vegetable and egg dishes and ask about the broth." },
+  { title: "Spice level", body: "Hubei food is savory and rich more than numbingly spicy, though Xiangyang beef noodles and crayfish carry real heat. Ask for 微辣 (mild) or 不辣 (no chili) on your first bowl." },
+  { title: "Allergies and safety", body: "Peanuts, sesame, seafood and gluten are common. Sesame paste is the base of hot dry noodles. A printed allergy card helps where English is thin." },
+];
+---
+<section id="food" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Ten dishes worth planning around
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hubei eats lotus root and river fish from its thousand lakes. Beyond the guozao ritual, here is the full menu, city by city.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+      {dishes.map((dish, i) => (
+        <div class="bg-white rounded-xl border border-stone-200 p-5 flex gap-4">
+          <span class="text-brand-700 font-bold text-sm shrink-0">{String(i + 1).padStart(2, "0")}</span>
+          <div>
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-bold text-stone-900">{dish.name} <span class="text-stone-400 font-medium text-sm">{dish.chinese}</span></h3>
+              <span class="text-xs font-medium text-brand-700 shrink-0">{dish.price}</span>
+            </div>
+            <p class="text-xs text-stone-400 mt-0.5">{dish.place}</p>
+            <p class="text-sm text-stone-600 mt-2 leading-relaxed">{dish.note}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden mb-6 group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        What to eat in each city
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[560px] text-left text-sm">
+            <thead>
+              <tr class="border-b border-stone-200">
+                <th class="py-3 pr-4 font-semibold text-stone-900">City</th>
+                <th class="py-3 font-semibold text-stone-900">Eat this</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              {cityFoods.map((c) => (
+                <tr>
+                  <td class="py-3 pr-4 text-stone-700 font-medium whitespace-nowrap">{c.city}</td>
+                  <td class="py-3 text-stone-600">{c.items}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Dietary notes: vegetarian, halal, spice and safety
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7 space-y-5">
+        {dietNotes.map((n) => (
+          <div>
+            <p class="font-semibold text-stone-900">{n.title}</p>
+            <p class="text-sm text-stone-600 mt-1.5 leading-relaxed">{n.body}</p>
+          </div>
+        ))}
+      </div>
+    </details>
+  </div>
+</section>

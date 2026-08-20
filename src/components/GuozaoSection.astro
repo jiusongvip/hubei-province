@@ -1,0 +1,53 @@
+---
+const ritual = [
+  { time: "5:00 AM", step: "The stalls fire up", note: "Sesame paste is mixed, noodles are boiled and drained, and the first steam rises over the street before the city wakes." },
+  { time: "6:30 AM", step: "The rush begins", note: "Office workers, students and taxi drivers queue at plastic stools. A bowl is ordered, mixed and finished in three minutes — standing up." },
+  { time: "9:00 AM", step: "The stalls start to close", note: "Guozao is a morning ritual, not an all-day meal. The best stalls sell out and pack up by mid-morning." },
+];
+
+const howTo = [
+  { title: "Mix it fast", body: "Hot dry noodles come with the sauce on top. Stir hard immediately so every strand gets coated before the paste thickens — that is the whole skill." },
+  { title: "Stand, don't sit", body: "The plastic stools and paper bowls are the point. Wuhan eats breakfast on its feet or perched on a stool; a table seat is optional." },
+  { title: "Order the set", body: "Hot dry noodles + a cup of soupy rice wine (蛋酒) or a bowl of hufen soup. That is a complete guozao breakfast." },
+  { title: "Say 微辣", body: "Ask for 微辣 (mild) on your first bowl. The chili oil is easy to over-order, and you can always add more." },
+];
+---
+<section id="guozao" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Guozao: how Wuhan wakes up
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Guozao (过早) means "pass the morning" — Wuhan's breakfast ritual, a city-wide habit of eating fast, standing up, on the street. It is the single most distinctive thing about Hubei, and no guidebook explains it properly.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+      <div class="lg:col-span-4 space-y-4">
+        {ritual.map((r, i) => (
+          <div class="relative pl-10">
+            <span class="absolute left-0 top-1 w-7 h-7 rounded-full bg-brand-700 text-white text-[10px] font-bold flex items-center justify-center">{i + 1}</span>
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">{r.time}</p>
+            <p class="font-semibold text-stone-900 mt-0.5">{r.step}</p>
+            <p class="text-sm text-stone-600 mt-1 leading-relaxed">{r.note}</p>
+          </div>
+        ))}
+      </div>
+      <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {howTo.map((h) => (
+          <div class="bg-stone-50 rounded-2xl border border-stone-200 p-6">
+            <p class="font-semibold text-stone-900">{h.title}</p>
+            <p class="text-sm text-stone-600 mt-2 leading-relaxed">{h.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="bg-stone-950 rounded-2xl p-8">
+      <p class="text-brand-100 text-base md:text-lg leading-relaxed max-w-4xl">
+        <span class="font-semibold text-white">Where to do it:</span> the tourist answer is Hubu Lane, but the real guozao is on the back streets of Hankou — Liangdao Street and the lanes around Shanhaiguan Road. Follow the longest queue, eat standing, and be done before 9 AM. That is the whole ritual.
+      </p>
+    </div>
+  </div>
+</section>

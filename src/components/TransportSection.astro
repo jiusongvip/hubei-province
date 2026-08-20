@@ -1,0 +1,102 @@
+---
+const routes = [
+  { from: "Wuhan", to: "Jingzhou", time: "1 h", mode: "rail" },
+  { from: "Wuhan", to: "Xiangyang", time: "1.5 h", mode: "rail" },
+  { from: "Wuhan", to: "Yichang", time: "2 h", mode: "rail" },
+  { from: "Wuhan", to: "Shiyan (Wudang)", time: "3 h", mode: "rail" },
+  { from: "Wuhan", to: "Enshi", time: "3.5 h", mode: "rail" },
+  { from: "Yichang", to: "Enshi", time: "2 h", mode: "rail" },
+  { from: "Xiangyang", to: "Wudangshan", time: "40 min", mode: "rail" },
+];
+---
+<section id="transport" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Getting to and around Hubei
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Wuhan is one of China's great rail hubs, and the whole province hangs on high-speed lines that reach every major stop in a few hours.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+      <div class="bg-white rounded-2xl border border-stone-200 p-7">
+        <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">By air</p>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">Wuhan is the gateway</h3>
+        <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+          <span class="font-medium text-stone-800">Wuhan Tianhe (WUH)</span> has direct international flights and a metro into town. <span class="font-medium text-stone-800">Yichang Sanxia</span> and <span class="font-medium text-stone-800">Enshi Xujiaping</span> serve western Hubei.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-stone-200 p-7">
+        <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">By rail</p>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">The high-speed hub</h3>
+        <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+          Wuhan sits on the Beijing-Guangzhou and Shanghai-Chengdu lines. Jingzhou, Xiangyang, Yichang, Shiyan and Enshi are all a short ride away. Book on the 12306 app or Trip.com.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-stone-200 p-7">
+        <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">By river & road</p>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">The Yangtze and the last mile</h3>
+        <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+          Yangtze cruises run between Chongqing and Yichang. Shennongjia and the Enshi canyon sit off the rail line — a private driver (CNY 400-600/day) covers the last stretch.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden">
+      <div class="px-7 py-5 border-b border-stone-200">
+        <h3 class="text-lg font-bold text-stone-900">Key rail times</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[560px] text-left text-sm">
+          <tbody class="divide-y divide-stone-100">
+            {routes.map((r) => (
+              <tr class="hover:bg-brand-50/40">
+                <td class="px-7 py-3.5 text-stone-700 font-medium whitespace-nowrap">{r.from} → {r.to}</td>
+                <td class="px-7 py-3.5 text-stone-500">{r.time}</td>
+                <td class="px-7 py-3.5 text-stone-400 text-xs uppercase tracking-wider">high-speed rail</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden mb-6 group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Buying train tickets as a foreigner
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7 space-y-3">
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <span class="font-medium text-stone-800">Easiest: <a href="https://www.trip.com/" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-800 underline">Trip.com</a>.</span> The English version of Ctrip sells China rail tickets for a small service fee, with an English interface and foreign-card payment. You board by scanning your passport — no paper ticket needed.
+        </p>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <span class="font-medium text-stone-800">Cheapest: the <a href="https://www.12306.cn/" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-800 underline">12306 app</a>.</span> The official app accepts foreign passports, but you must verify your identity in person at a station window once. After that you can buy and board with the app.
+        </p>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <span class="font-medium text-stone-800">Seat classes.</span> Second class (二等座) is comfortable and cheap; first class (一等座) has wider seats. Tickets open about 15 days ahead and sell fast around Chinese holidays.
+        </p>
+      </div>
+    </details>
+
+    <details class="bg-white rounded-2xl border border-stone-200 overflow-hidden group">
+      <summary class="cursor-pointer flex items-center justify-between px-7 py-5 text-lg font-bold text-stone-900 list-none">
+        Getting around cities and the last mile
+        <svg class="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="px-7 pb-7 space-y-3">
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <span class="font-medium text-stone-800">Ride-hailing:</span> Didi (滴滴) is the default and works with an English interface and foreign cards. Use it instead of flagging unlicensed taxis at stations.
+        </p>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <span class="font-medium text-stone-800">Metro:</span> Wuhan has a large, modern metro that reaches the airport and the main sights. Yichang and Xiangyang run on buses and ride-hailing.
+        </p>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <span class="font-medium text-stone-800">Private drivers:</span> For Shennongjia, the Enshi canyon and Wudang transfers, a private car runs CNY 400-600 per day. Your guesthouse can usually arrange one for less than a tour desk.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>

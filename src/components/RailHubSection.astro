@@ -1,0 +1,41 @@
+---
+const hubs = [
+  { to: "Changsha (Hunan)", time: "1.5 h", note: "Mao's hometown and spicy Hunan food — a short hop to Zhangjiajie beyond." },
+  { to: "Guangzhou", time: "3.5 h", note: "Cantonese food and the Pearl River Delta, straight down the line." },
+  { to: "Shanghai", time: "4 h", note: "The eastern megacity, on the Shanghai-Chengdu line." },
+  { to: "Beijing", time: "4.5 h", note: "The Great Wall and the Forbidden City, up the Beijing-Guangzhou line." },
+  { to: "Chengdu", time: "6 h", note: "Pandas, Sichuan food and the Tibetan plateau beyond." },
+];
+---
+<section id="rail" class="py-20 md:py-28 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Wuhan: the rail hub of central China
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Wuhan is called "the thoroughfare of nine provinces" for a reason. It sits at the crossroads of China's two biggest high-speed rail lines — which means Hubei slots into almost any China route.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+      {hubs.map((h) => (
+        <div class="bg-white rounded-2xl border border-stone-200 p-6">
+          <p class="text-xl font-bold text-brand-700">{h.time}</p>
+          <p class="text-stone-900 font-semibold mt-1">to {h.to}</p>
+          <p class="text-sm text-stone-500 mt-2 leading-relaxed">{h.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-stone-950 rounded-2xl p-8">
+      <p class="text-brand-100 text-base md:text-lg leading-relaxed max-w-4xl">
+        <span class="font-semibold text-white">What this means for your trip:</span>
+        Hubei is not a detour — it is a natural stop. A classic route is
+        <span class="text-white font-semibold">Beijing → Wuhan → Three Gorges → Chongqing → Chengdu</span>,
+        or <span class="text-white font-semibold">Wuhan → Changsha → Zhangjiajie → Guilin</span>.
+        You can be in Wuhan by lunchtime from Beijing, Shanghai or Guangzhou.
+      </p>
+    </div>
+  </div>
+</section>

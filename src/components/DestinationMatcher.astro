@@ -1,0 +1,112 @@
+---
+import { destinations } from "../data/destinations";
+
+type Matcher = {
+  id: string;
+  label: string;
+  tagline: string;
+  route: string;
+  days: string;
+  reason: string;
+  slugs: string[];
+};
+
+const matchers: Matcher[] = [
+  {
+    id: "classic",
+    label: "First-timer",
+    tagline: "The classic loop, logistics included",
+    route: "Wuhan → Yichang (Three Gorges) → Wudang",
+    days: "7 days",
+    reason:
+      "The safest first Hubei trip: the capital's highlights, the world's biggest dam and one sacred mountain, all on high-speed rail.",
+    slugs: ["wuhan", "yichang-three-gorges", "wudang-mountains"],
+  },
+  {
+    id: "taoist",
+    label: "Taoist & martial arts",
+    tagline: "Climb Wudang, the cradle of tai chi",
+    route: "Wuhan → Xiangyang → Wudang",
+    days: "4-5 days",
+    reason:
+      "Walk the Ming temples where tai chi was born, catch morning practice in the courtyards, and stop in Xiangyang on the way west.",
+    slugs: ["wudang-mountains", "xiangyang"],
+  },
+  {
+    id: "nature",
+    label: "Nature & wildlife",
+    tagline: "Shennongjia's primeval forest",
+    route: "Yichang → Shennongjia",
+    days: "3 days",
+    reason:
+      "China's only triple-UNESCO forest, with golden snub-nosed monkeys and the misty Dajiu Lake wetlands.",
+    slugs: ["shennongjia"],
+  },
+  {
+    id: "history",
+    label: "Three Kingdoms fan",
+    tagline: "Chase the Red Cliffs and the walled cities",
+    route: "Wuhan → Chibi → Jingzhou → Xiangyang",
+    days: "3-4 days",
+    reason:
+      "More than 70 of the Romance's 120 chapters are set in Hubei. Walk the Chibi battlefield, the Jingzhou wall and Zhuge Liang's Longzhong.",
+    slugs: ["chibi", "jingzhou-ancient-city", "xiangyang"],
+  },
+  {
+    id: "hiker",
+    label: "Canyon hiker",
+    tagline: "Enshi's Colorado-style gorge",
+    route: "Wuhan → Enshi Grand Canyon",
+    days: "3 days",
+    reason:
+      "The One Pillar of Fragrance, the Qingjiang Gallery and Tenglong Cave — Hubei's most underrated corner.",
+    slugs: ["enshi-grand-canyon"],
+  },
+  {
+    id: "food",
+    label: "Food obsessive",
+    tagline: "Guozao: Wuhan's breakfast ritual",
+    route: "Wuhan only",
+    days: "3 days",
+    reason:
+      "Hot dry noodles, doupi, Wuchang fish and the province's famous crayfish. Wuhan's breakfast culture is the best morning food in central China.",
+    slugs: ["wuhan"],
+  },
+];
+
+const bySlug = Object.fromEntries(destinations.map((d) => [d.slug, d]));
+---
+<section id="matcher" class="py-20 md:py-28 bg-stone-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white pb-1">
+        Which Hubei is yours?
+      </h2>
+      <p class="text-stone-400 text-lg mt-4 leading-relaxed max-w-2xl">
+        Pick the traveler you are and the route mostly writes itself. Six types, one of them is you.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {matchers.map((m, i) => (
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-700 text-white text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+            <div>
+              <h3 class="font-bold text-white leading-tight">{m.label}</h3>
+              <p class="text-brand-300 text-xs mt-0.5">{m.tagline}</p>
+            </div>
+          </div>
+          <p class="text-stone-300 text-sm font-medium mt-4">{m.route}</p>
+          <p class="text-stone-500 text-xs mt-1">{m.days}</p>
+          <p class="text-stone-400 text-sm mt-3 leading-relaxed flex-1">{m.reason}</p>
+          <div class="flex flex-wrap gap-1.5 mt-4">
+            {m.slugs.map((slug) => (
+              <span class="px-2.5 py-1 bg-white/10 text-stone-300 text-xs rounded-full">{bySlug[slug].name}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

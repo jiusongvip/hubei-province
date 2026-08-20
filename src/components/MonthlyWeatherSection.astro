@@ -1,0 +1,55 @@
+---
+const months = [
+  { month: "January", low: "2–8°C, damp cold", high: "Below freezing, Wudang can see snow", do: "Museums, hot springs, cities. Quiet and cheap." },
+  { month: "February", low: "4–10°C, damp", high: "Cold, occasional snow", do: "Hot springs, museums. Spring Festival if it falls here." },
+  { month: "March", low: "8–16°C, warming", high: "Chilly but thawing", do: "Wuhan cherry blossoms begin late March." },
+  { month: "April", low: "13–22°C, mild", high: "8–18°C, green", do: "Peak season — cherry blossom, East Lake, the gorges." },
+  { month: "May", low: "18–27°C, pleasant", high: "12–22°C, lush", do: "Yangtze cruise season opens. Great all-round month." },
+  { month: "June", low: "23–31°C, plum rains", high: "15–25°C, humid", do: "Crayfish season. Three Gorges at full flow." },
+  { month: "July", low: "26–36°C, furnace", high: "18–28°C, cool escape", do: "Flee the heat to Shennongjia and Enshi." },
+  { month: "August", low: "26–36°C, furnace", high: "18–28°C, cool", do: "Mountain escape, crayfish, waterfalls." },
+  { month: "September", low: "21–31°C, easing", high: "14–24°C, crisp", do: "Peak season returns. Clear skies over the gorges." },
+  { month: "October", low: "15–25°C, perfect", high: "8–18°C, crisp", do: "The best month. Book the cruise and Wudang ahead." },
+  { month: "November", low: "8–18°C, cool", high: "3–12°C, frosty nights", do: "Shennongjia autumn color, Three Kingdoms sites." },
+  { month: "December", low: "3–10°C, cold", high: "Below freezing", do: "Hot springs, museums, quiet cities." },
+];
+---
+<section id="weather" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Hubei weather, month by month
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Hubei has a real furnace of a summer and a damp winter, and the mountains run 10-15°C cooler than Wuhan. Here is the month-by-month picture, with what to do in each.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto rounded-2xl border border-stone-200">
+      <table class="w-full min-w-[680px] text-left text-sm">
+        <thead>
+          <tr class="bg-stone-50 border-b border-stone-200">
+            <th class="px-5 py-4 font-semibold text-stone-900">Month</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">Wuhan & lowlands</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">Mountains (Wudang, Shennongjia, Enshi)</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">What to do</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-100">
+          {months.map((m) => (
+            <tr class="hover:bg-brand-50/40">
+              <td class="px-5 py-3.5 text-stone-700 font-semibold whitespace-nowrap">{m.month}</td>
+              <td class="px-5 py-3.5 text-stone-600">{m.low}</td>
+              <td class="px-5 py-3.5 text-stone-600">{m.high}</td>
+              <td class="px-5 py-3.5 text-stone-600">{m.do}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-stone-400 mt-4">
+      Temperatures are typical ranges. The mountains (Shennong Peak 3,106m, Wudang 1,612m) run 10-15°C cooler than Wuhan in summer.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+const items = [
+  { title: "Overall safety", body: "Hubei is well-policed and tourist-friendly. Wuhan, Yichang and Jingzhou are safe for travelers, including solo women. Violent crime against visitors is rare." },
+  { title: "Common tourist traps", body: "Watch for overcharging near the Yellow Crane Tower and the dam, and for unlicensed taxis outside stations. Use Didi, agree driver prices in advance, and check menus before ordering." },
+  { title: "Health and food", body: "Stick to busy stalls and bottled or boiled water. The main hazard is Wuhan's summer heat — hydrate and avoid midday sightseeing in July and August." },
+  { title: "Weather and terrain", body: "Wudang's temple stairs and Enshi's canyon paths are steep and slippery when wet. Wear grippy shoes and take the cable car where you can." },
+  { title: "River and mountain safety", body: "On cruises and gorge boats, wear the life vest provided. In Shennongjia and on Wudang, stay on marked paths and carry water." },
+];
+---
+<section id="safety" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Is Hubei safe?
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Short answer: yes. Hubei is one of China's easier, safer provinces for foreign travelers. A few honest caveats so nothing catches you off guard.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {items.map((it, i) => (
+        <div class="bg-stone-50 rounded-2xl border border-stone-200 p-6">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-brand-700 text-white text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+            <h3 class="font-bold text-stone-900">{it.title}</h3>
+          </div>
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed">{it.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

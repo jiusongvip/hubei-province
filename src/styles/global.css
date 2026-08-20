@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand cinnabar red: Chu lacquer, Red Cliffs, and Wudang's vermilion temple walls */
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fde5e3;
+  --color-brand-200: #fbcbc7;
+  --color-brand-300: #f7a59e;
+  --color-brand-400: #f07a6e;
+  --color-brand-500: #e05548;
+  --color-brand-600: #c93a2d;
+  --color-brand-700: #a92d23;
+  --color-brand-800: #8c2720;
+  --color-brand-900: #74241e;
+  --color-brand-950: #400e0a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-stone-900 bg-stone-50 antialiased;
+  }
+  h1, h2, h3 {
+    @apply tracking-tight;
+  }
+  ::selection {
+    @apply bg-brand-200 text-brand-950;
+  }
+}
+
+/* Fixed nav: transparent white text over hero, solid once scrolled. */
+#main-nav.nav-solid {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(64, 14, 10, 0.08);
+}
+#main-nav.nav-solid .nav-logo {
+  color: #1c1917;
+  text-shadow: none;
+}
+#main-nav.nav-solid .nav-link {
+  color: #44403c;
+}
+#main-nav.nav-solid .nav-link:hover {
+  color: #a92d23;
+}
+#main-nav.nav-solid .nav-mobile-btn {
+  color: #1c1917;
+}
+#main-nav.nav-solid .nav-cta {
+  background: #a92d23;
+  color: #ffffff;
+}
+#main-nav.nav-solid .nav-cta:hover {
+  background: #8c2720;
+}
+
+/* Anchor jump offset for the fixed nav */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Ken Burns zoom */
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+.hero-zoom {
+  animation: heroZoom 10s ease-out forwards;
+}
+
+/* FAQ accordion */
+.faq-item button { cursor: pointer; width: 100%; text-align: left; }
+.faq-item .faq-answer { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+.faq-item.open .faq-answer { max-height: 600px; }
+.faq-item.open > button > svg { transform: rotate(180deg); }
+
+/* Destination card hover */
+.dest-card img { transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.dest-card:hover img { transform: scale(1.06); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .dest-card img { transition: none; }
+}

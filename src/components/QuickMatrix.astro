@@ -1,0 +1,81 @@
+---
+import { destinations } from "../data/destinations";
+
+const budgetHint: Record<string, string> = {
+  wuhan: "CNY 300+",
+  "wudang-mountains": "CNY 300+",
+  shennongjia: "CNY 350+",
+  "yichang-three-gorges": "CNY 300+",
+  "enshi-grand-canyon": "CNY 250+",
+  "jingzhou-ancient-city": "CNY 250+",
+  xiangyang: "CNY 250+",
+  chibi: "CNY 250+",
+};
+
+const direction: Record<string, string> = {
+  wuhan: "East",
+  chibi: "Southeast",
+  "wudang-mountains": "Northwest",
+  xiangyang: "Northwest",
+  "yichang-three-gorges": "West",
+  shennongjia: "West",
+  "jingzhou-ancient-city": "West",
+  "enshi-grand-canyon": "Southwest",
+};
+
+const directionColor: Record<string, string> = {
+  East: "bg-brand-700",
+  Southeast: "bg-brand-600",
+  Northwest: "bg-stone-700",
+  West: "bg-brand-500",
+  Southwest: "bg-stone-500",
+};
+---
+<section class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        The at-a-glance decision table
+      </h2>
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Direction, days, daily budget and who it suits, in one table. If you only read one thing, read this.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto rounded-2xl border border-stone-200">
+      <table class="w-full min-w-[680px] text-left text-sm">
+        <thead>
+          <tr class="bg-stone-50 border-b border-stone-200">
+            <th class="px-5 py-4 font-semibold text-stone-900">Destination</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">Direction</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">Stay</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">Daily budget</th>
+            <th class="px-5 py-4 font-semibold text-stone-900">Best for</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-100">
+          {destinations.map((d) => (
+            <tr class="hover:bg-brand-50/40">
+              <td class="px-5 py-4">
+                <span class="font-semibold text-stone-900">{d.name}</span>
+                <span class="text-stone-400 font-medium"> {d.chinese}</span>
+              </td>
+              <td class="px-5 py-4 whitespace-nowrap">
+                <span class={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full text-white ${directionColor[direction[d.slug]]}`}>
+                  {direction[d.slug]}
+                </span>
+              </td>
+              <td class="px-5 py-4 text-stone-600 whitespace-nowrap">{d.minDays}</td>
+              <td class="px-5 py-4 text-stone-600 whitespace-nowrap">{budgetHint[d.slug]}</td>
+              <td class="px-5 py-4 text-stone-600">{d.bestFor}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-stone-400 mt-4">
+      Daily budgets are mid-range per person, excluding the Three Gorges cruise and Wudang cable car. See the calculator below for a full estimate.
+    </p>
+  </div>
+</section>
