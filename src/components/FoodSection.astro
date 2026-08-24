@@ -1,15 +1,15 @@
 ---
 const dishes = [
-  { name: "Hot dry noodles", chinese: "热干面", place: "Wuhan", price: "CNY 6-10", note: "The guozao icon: alkaline noodles in sesame paste, soy and chili. See the guozao section above for the full ritual." },
-  { name: "Doupi", chinese: "豆皮", place: "Wuhan", price: "CNY 8-15", note: "A pan-fried square of sticky rice, egg and bean skin with minced pork and bamboo shoot. Crisp outside, soft inside." },
-  { name: "Wuchang fish", chinese: "武昌鱼", place: "Wuhan", price: "CNY 60-120", note: "A freshwater bream from the Yangtze, steamed with ginger and scallion. The dish to order for a sit-down dinner." },
-  { name: "Duck neck", chinese: "鸭脖", place: "Wuhan", price: "CNY 20-40", note: "Spiced, braised duck neck — the snack Wuhan snacks on all day. Zhouheiya and Jingwu are the trusted brands." },
-  { name: "Lotus root & rib soup", chinese: "排骨藕汤", place: "Hubei", price: "CNY 30-60", note: "Pork ribs simmered with the 'thousand lakes' lotus root. Hubei's comfort-food signature." },
-  { name: "Crayfish", chinese: "小龙虾", place: "Qianjiang · summer", price: "CNY 80-150", note: "Hubei is China's crayfish capital, and Qianjiang's are the reference. Steamed or spicy, from May to September." },
-  { name: "Jingzhou fish cake", chinese: "鱼糕", place: "Jingzhou", price: "CNY 30-60", note: "Pounded freshwater fish steamed into a soft cake, served in soup or stir-fried. Delicate and unlike anything in Wuhan." },
-  { name: "Xiangyang beef noodles", chinese: "襄阳牛肉面", place: "Xiangyang", price: "CNY 10-20", note: "Hand-pulled noodles in a rich, spicy beef broth. The city's breakfast, worth the stop alone." },
-  { name: "Three Gorges fish hotpot", chinese: "三峡鱼火锅", place: "Yichang", price: "CNY 80-160", note: "Fresh Yangtze fish simmered in a clear or spicy broth. Order the clear broth to taste the fish." },
-  { name: "Hezha", chinese: "合渣", place: "Enshi", price: "CNY 15-30", note: "A Tujia staple: pounded soybeans cooked with greens. Cheap, filling and the taste of Enshi's countryside." },
+  { name: "Hot dry noodles", chinese: "热干面", pr: "ruh gan mee-en", place: "Wuhan", price: "CNY 6-10", note: "The guozao icon: alkaline noodles in sesame paste, soy and chili. See the guozao section above for the full ritual.", img: "/images/food/re-gan-mian.webp", alt: "Hot dry noodles with doupi, a classic Wuhan guozao breakfast" },
+  { name: "Doupi", chinese: "豆皮", pr: "doh-pee", place: "Wuhan", price: "CNY 8-15", note: "A pan-fried square of sticky rice, egg and bean skin with minced pork and bamboo shoot. Crisp outside, soft inside.", img: "/images/food/doupi.webp", alt: "Doupi cooking on a flat pan in a Wuhan kitchen" },
+  { name: "Wuchang fish", chinese: "武昌鱼", pr: "woo-chahng yoo", place: "Wuhan", price: "CNY 60-120", note: "A freshwater bream from the Yangtze, steamed with ginger and scallion. The dish to order for a sit-down dinner.", img: "/images/food/wuchang-fish.webp", alt: "Steamed Wuchang bream on a serving plate" },
+  { name: "Duck neck", chinese: "鸭脖", pr: "yah bwoh", place: "Wuhan", price: "CNY 20-40", note: "Spiced, braised duck neck — the snack Wuhan snacks on all day. Zhouheiya and Jingwu are the trusted brands.", img: "/images/food/duck-neck.webp", alt: "Packaged braised duck necks, the Wuhan snack staple" },
+  { name: "Lotus root & rib soup", chinese: "排骨藕汤", pr: "pai-goo oh tahng", place: "Hubei", price: "CNY 30-60", note: "Pork ribs simmered with the 'thousand lakes' lotus root. Hubei's comfort-food signature." },
+  { name: "Crayfish", chinese: "小龙虾", pr: "shyao-long-shyah", place: "Qianjiang · summer", price: "CNY 80-150", note: "Hubei is China's crayfish capital, and Qianjiang's are the reference. Steamed or spicy, from May to September." },
+  { name: "Jingzhou fish cake", chinese: "鱼糕", pr: "yoo gao", place: "Jingzhou", price: "CNY 30-60", note: "Pounded freshwater fish steamed into a soft cake, served in soup or stir-fried. Delicate and unlike anything in Wuhan." },
+  { name: "Xiangyang beef noodles", chinese: "襄阳牛肉面", pr: "shyahng-yahng nyoh-roh mee-en", place: "Xiangyang", price: "CNY 10-20", note: "Hand-pulled noodles in a rich, spicy beef broth. The city's breakfast, worth the stop alone.", img: "/images/food/xiangyang-noodles.webp", alt: "A bowl of spicy Xiangyang beef noodles" },
+  { name: "Three Gorges fish hotpot", chinese: "三峡鱼火锅", pr: "sahn-shyah yoo hwoh-gwoh", place: "Yichang", price: "CNY 80-160", note: "Fresh Yangtze fish simmered in a clear or spicy broth. Order the clear broth to taste the fish." },
+  { name: "Hezha", chinese: "合渣", pr: "huh jah", place: "Enshi", price: "CNY 15-30", note: "A Tujia staple: pounded soybeans cooked with greens. Cheap, filling and the taste of Enshi's countryside." },
 ];
 
 const cityFoods = [
@@ -35,21 +35,24 @@ const dietNotes = [
         Ten dishes worth planning around
       </h2>
       <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
-        Hubei eats lotus root and river fish from its thousand lakes. Beyond the guozao ritual, here is the full menu, city by city.
+        Lotus root and river fish from a thousand lakes. The full menu, city by city.
       </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
       {dishes.map((dish, i) => (
-        <div class="bg-white rounded-xl border border-stone-200 p-5 flex gap-4">
-          <span class="text-brand-700 font-bold text-sm shrink-0">{String(i + 1).padStart(2, "0")}</span>
-          <div>
-            <div class="flex items-baseline justify-between gap-2">
-              <h3 class="font-bold text-stone-900">{dish.name} <span class="text-stone-400 font-medium text-sm">{dish.chinese}</span></h3>
-              <span class="text-xs font-medium text-brand-700 shrink-0">{dish.price}</span>
+        <div class="bg-white rounded-xl border border-stone-200 overflow-hidden flex flex-col">
+          {dish.img && <img src={dish.img} alt={dish.alt} class="h-36 w-full object-cover" loading="lazy" decoding="async" />}
+          <div class="p-5 flex gap-4 flex-1">
+            <span class="text-brand-700 font-bold text-sm shrink-0">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="font-bold text-stone-900">{dish.name} <span class="text-stone-400 font-medium text-sm">{dish.chinese} <span class="italic font-normal">({dish.pr})</span></span></h3>
+                <span class="text-xs font-medium text-brand-700 shrink-0">{dish.price}</span>
+              </div>
+              <p class="text-xs text-stone-400 mt-0.5">{dish.place}</p>
+              <p class="text-sm text-stone-600 mt-2 leading-relaxed">{dish.note}</p>
             </div>
-            <p class="text-xs text-stone-400 mt-0.5">{dish.place}</p>
-            <p class="text-sm text-stone-600 mt-2 leading-relaxed">{dish.note}</p>
           </div>
         </div>
       ))}

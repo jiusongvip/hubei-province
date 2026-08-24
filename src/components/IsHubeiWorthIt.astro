@@ -2,65 +2,66 @@
 const verdicts = [
   {
     condition: "Three Kingdoms history",
-    verdict: "Go. More than 70 of the Romance of the Three Kingdoms' 120 chapters are set in Hubei — Chibi, Jingzhou, Xiangyang and Longzhong.",
+    verdict: "Go. 70 of the Romance's 120 chapters are set here — Chibi, Jingzhou, Xiangyang and Longzhong.",
     go: true,
   },
   {
     condition: "Taoism & tai chi",
-    verdict: "Go. Wudang is the cradle of tai chi, Shaolin's quieter, Taoist sibling — a working mountain, not a museum.",
+    verdict: "Go. Wudang is the cradle of tai chi — a working Taoist mountain, not a museum.",
     go: true,
   },
   {
     condition: "The Three Gorges & the Yangtze",
-    verdict: "Go. The world's largest dam and Xiling Gorge are a two-hour rail hop from Wuhan, or a multi-day cruise from Chongqing.",
+    verdict: "Go. The world's largest dam and Xiling Gorge are two hours from Wuhan by rail.",
     go: true,
   },
   {
     condition: "Breakfast & street food",
-    verdict: "Go. Wuhan's guozao breakfast — hot dry noodles, doupi, rice wine — is the best morning food in central China.",
+    verdict: "Go. Wuhan's guozao breakfast is the best morning food in central China.",
     go: true,
   },
   {
     condition: "Karst peaks & rice terraces only",
-    verdict: "Skip. Go to Guangxi (Guilin, Yangshuo) instead — Hubei's strength is history, sacred mountains and the river, not karst scenery.",
+    verdict: "Skip. For that, go to Guangxi instead.",
     go: false,
   },
   {
     condition: "Beaches & tropical warmth",
-    verdict: "Skip. Hubei is landlocked central China with a furnace of a summer. It is a city-and-mountain trip, not a coast.",
+    verdict: "Skip. Hubei is landlocked, with a furnace of a summer.",
     go: false,
   },
 ];
 ---
-<section id="verdict" class="py-20 md:py-28 bg-stone-950">
+<section id="verdict" class="py-20 md:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white pb-1">
+      <p class="kicker mb-4">The honest split</p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
         Is Hubei worth visiting?
       </h2>
-      <p class="text-stone-400 text-lg mt-4 leading-relaxed max-w-2xl">
-        The honest answer: yes — but only if one of these is already on your list. Hubei is a decision, not a default. Here is the straight split.
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Yes — if one of these is already on your list. Here is the straight split.
       </p>
     </div>
 
-    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 mb-8">
-      <p class="text-white text-lg md:text-xl leading-relaxed max-w-4xl">
-        <span class="font-bold text-brand-400">Short version:</span>
-        Hubei is worth a dedicated trip if you care about
-        <span class="text-white font-semibold">Three Kingdoms history, Taoist Wudang, the Three Gorges, or serious food</span>.
-        It is not the postcard-first choice that Yunnan or Guangxi are — if all you want is karst peaks and rice terraces, head to Guangxi instead.
+    <div class="bg-brand-50 border border-brand-200 rounded-2xl p-8 mb-8">
+      <p class="text-stone-800 text-lg md:text-xl leading-relaxed max-w-4xl">
+        <span class="font-bold text-brand-800">Short version:</span>
+        worth a dedicated trip if you care about
+        <span class="text-stone-900 font-semibold">Three Kingdoms history, Taoist Wudang, the Three Gorges or serious food</span>.
+        Only want karst peaks and terraces? Head to Guangxi instead.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {verdicts.map((v) => (
-        <div class={`rounded-2xl border p-6 flex gap-4 ${v.go ? "border-brand-600/40 bg-brand-950/40" : "border-stone-700 bg-stone-900/60"}`}>
-          <div class={`shrink-0 h-9 px-3 rounded-full flex items-center justify-center text-xs font-bold uppercase tracking-wider ${v.go ? "bg-brand-700 text-white" : "bg-stone-600 text-stone-200"}`}>
+        <div class={`rounded-2xl border p-6 flex gap-4 ${v.go ? "border-brand-200 bg-brand-50/60" : "border-stone-200 bg-stone-50"}`}>
+          <div class={`shrink-0 h-9 px-3 rounded-full flex items-center justify-center text-xs font-bold uppercase tracking-wider ${v.go ? "bg-brand-700 text-white" : "bg-stone-500 text-white"}`}>
             {v.go ? "Go" : "Skip"}
           </div>
           <div>
-            <p class="text-white font-semibold">{v.condition}</p>
-            <p class={`text-sm mt-1 leading-relaxed ${v.go ? "text-stone-300" : "text-stone-400"}`}>{v.verdict}</p>
+            <p class="text-stone-900 font-semibold">{v.condition}</p>
+            <p class={`text-sm mt-1 leading-relaxed ${v.go ? "text-stone-600" : "text-stone-500"}`}>{v.verdict}</p>
           </div>
         </div>
       ))}

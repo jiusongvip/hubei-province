@@ -21,12 +21,12 @@ const budgetHint: Record<number, string> = {
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {itineraries.map((it) => (
         <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col">
-          <div class="bg-stone-950 px-7 py-5 flex items-baseline justify-between">
+          <div class="bg-brand-50 border-b border-brand-200 px-7 py-5 flex items-baseline justify-between">
             <div>
-              <p class="text-brand-400 text-xs font-semibold uppercase tracking-wider">{it.days}-day trip · {it.subtitle}</p>
-              <h3 class="text-xl font-bold text-white mt-1">{it.title}</h3>
+              <p class="text-brand-700 text-xs font-semibold uppercase tracking-wider">{it.days}-day trip · {it.subtitle}</p>
+              <h3 class="text-xl font-bold text-stone-900 mt-1">{it.title}</h3>
             </div>
-            <p class="text-brand-500 text-sm font-bold whitespace-nowrap shrink-0 ml-4">{budgetHint[it.days]}</p>
+            <p class="text-brand-700 text-sm font-bold whitespace-nowrap shrink-0 ml-4">{budgetHint[it.days]}</p>
           </div>
           <div class="p-7 flex flex-col flex-1">
             <p class="text-brand-700 text-sm font-semibold">{it.route}</p>

@@ -1,21 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Manrope", ui-serif, Georgia, serif;
 
-  /* Brand cinnabar red: Chu lacquer, Red Cliffs, and Wudang's vermilion temple walls */
-  --color-brand-50: #fef2f2;
-  --color-brand-100: #fde5e3;
-  --color-brand-200: #fbcbc7;
-  --color-brand-300: #f7a59e;
-  --color-brand-400: #f07a6e;
-  --color-brand-500: #e05548;
-  --color-brand-600: #c93a2d;
-  --color-brand-700: #a92d23;
-  --color-brand-800: #8c2720;
-  --color-brand-900: #74241e;
-  --color-brand-950: #400e0a;
+  /* Cool parchment neutral scale — whiter than cream, with a faint ink cast. */
+  --color-stone-50: #faf9f6;
+  --color-stone-100: #f3f1eb;
+  --color-stone-200: #e4e0d6;
+  --color-stone-300: #cdc6b7;
+  --color-stone-400: #a49d8e;
+  --color-stone-500: #7c766a;
+  --color-stone-600: #5e5950;
+  --color-stone-700: #453f38;
+  --color-stone-800: #2d2a25;
+  --color-stone-900: #1b1916;
+  --color-stone-950: #0e0d0b;
+
+  /* Brand: cinnabar lacquer red — Chu lacquerware, the Red Cliffs, Wudang's vermilion walls. */
+  --color-brand-50: #fdf4f1;
+  --color-brand-100: #fbe7e0;
+  --color-brand-200: #f6cdc0;
+  --color-brand-300: #eeab97;
+  --color-brand-400: #e38168;
+  --color-brand-500: #d45c3f;
+  --color-brand-600: #b8432b;
+  --color-brand-700: #a1321f;
+  --color-brand-800: #7d2a1c;
+  --color-brand-900: #5f2519;
+  --color-brand-950: #330f09;
 }
 
 @layer base {
@@ -27,80 +40,404 @@
   }
   h1, h2, h3 {
     @apply tracking-tight;
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
   }
   ::selection {
     @apply bg-brand-200 text-brand-950;
   }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 1px solid var(--color-brand-600);
+    outline-offset: 3px;
+  }
 }
 
-/* Fixed nav: transparent white text over hero, solid once scrolled. */
-#main-nav.nav-solid {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(64, 14, 10, 0.08);
+/* ---------------------------------------------------------------------------
+   Seals — the red 印章 motif that marks every section
+--------------------------------------------------------------------------- */
+.seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--color-brand-700);
+  color: #faf9f6;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  flex-shrink: 0;
 }
-#main-nav.nav-solid .nav-logo {
-  color: #1c1917;
-  text-shadow: none;
+.seal-sm {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.8rem;
+}
+
+/* Kicker: a red seal dot + letterspaced small caps */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-brand-700);
+}
+.kicker::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--color-brand-600);
+  display: inline-block;
+  flex-shrink: 0;
+}
+.kicker-dark {
+  color: var(--color-brand-300);
+}
+.kicker-dark::before {
+  background: var(--color-brand-400);
+}
+
+.hairline {
+  height: 1px;
+  background: var(--color-stone-200);
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons — lacquer-chamfered corners, never rounded pills
+--------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+.btn-primary {
+  background: var(--color-brand-700);
+  color: #faf9f6;
+  border: 1px solid var(--color-brand-700);
+}
+.btn-primary:hover {
+  background: var(--color-brand-600);
+  border-color: var(--color-brand-600);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-stone-900);
+  border: 1px solid var(--color-stone-400);
+}
+.btn-outline:hover {
+  border-color: var(--color-brand-600);
+  color: var(--color-brand-700);
+  background: rgba(163, 50, 31, 0.04);
+}
+.btn-outline-dark {
+  border-color: rgba(250, 249, 246, 0.45);
+  color: #faf9f6;
+}
+.btn-outline-dark:hover {
+  border-color: #faf9f6;
+  background: #faf9f6;
+  color: var(--color-stone-900);
+}
+
+/* ---------------------------------------------------------------------------
+   Fixed nav
+--------------------------------------------------------------------------- */
+#main-nav.nav-solid {
+  background: rgba(250, 249, 246, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-stone-200);
+}
+#main-nav.nav-solid .nav-logo,
+#main-nav.nav-solid .nav-logo-text {
+  color: var(--color-stone-900);
 }
 #main-nav.nav-solid .nav-link {
-  color: #44403c;
+  color: var(--color-stone-600);
 }
 #main-nav.nav-solid .nav-link:hover {
-  color: #a92d23;
+  color: var(--color-brand-700);
+  border-bottom-color: var(--color-brand-600);
 }
 #main-nav.nav-solid .nav-mobile-btn {
-  color: #1c1917;
+  color: var(--color-stone-900);
+}
+#main-nav .nav-link {
+  color: var(--color-stone-600);
+  border-bottom: 1px solid transparent;
+}
+#main-nav .nav-link:hover {
+  color: var(--color-brand-700);
+  border-bottom-color: var(--color-brand-600);
+}
+#main-nav .nav-cta {
+  background: var(--color-brand-700);
+  color: #faf9f6;
+  border: 1px solid var(--color-brand-700);
+}
+#main-nav .nav-cta:hover {
+  background: var(--color-brand-600);
+  border-color: var(--color-brand-600);
 }
 #main-nav.nav-solid .nav-cta {
-  background: #a92d23;
-  color: #ffffff;
+  background: var(--color-brand-700);
+  color: #faf9f6;
+  border-color: var(--color-brand-700);
 }
 #main-nav.nav-solid .nav-cta:hover {
-  background: #8c2720;
+  background: var(--color-brand-600);
 }
 
-/* Anchor jump offset for the fixed nav */
-section[id] {
-  scroll-margin-top: 6rem;
+/* ---------------------------------------------------------------------------
+   Loading ritual veil — a red seal breathing on parchment
+--------------------------------------------------------------------------- */
+.loading-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--color-stone-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.loading-veil.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loading-veil .loading-mark {
+  width: 58px;
+  height: 58px;
+  background: var(--color-brand-700);
+  color: #faf9f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(163, 50, 31, 0.28);
+  animation: loadingBreath 1.6s ease-in-out infinite;
+}
+.loading-veil .loading-word {
+  margin-top: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-stone-900);
+}
+@keyframes loadingBreath {
+  0%, 100% { opacity: 0.45; transform: scale(0.97); }
+  50% { opacity: 1; transform: scale(1); }
 }
 
-/* Scroll reveal */
+/* ---------------------------------------------------------------------------
+   Hero stage — editorial split: copy left, framed photograph right
+--------------------------------------------------------------------------- */
+.hero-stage {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background: var(--color-stone-50);
+  overflow: hidden;
+}
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60rem 32rem at 85% 18%, rgba(212, 92, 63, 0.07), transparent 60%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    padding: 7rem 2rem 5rem;
+  }
+}
+.hero-stage .kicker {
+  color: var(--color-brand-700);
+}
+.hero-stage .kicker::before {
+  background: var(--color-brand-600);
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-stone-900);
+  line-height: 1.03;
+  letter-spacing: -0.015em;
+  margin-top: 1.5rem;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-brand-700);
+}
+.hero-sub {
+  color: var(--color-stone-600);
+  max-width: 30rem;
+  margin-top: 1.6rem;
+  font-weight: 400;
+}
+.hero-meta {
+  margin-top: 2.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-stone-500);
+}
+.hero-frame {
+  position: relative;
+  border: 1px solid var(--color-brand-300);
+  padding: 12px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(30, 25, 20, 0.12);
+}
+.hero-frame img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  max-height: 620px;
+  object-fit: cover;
+  display: block;
+}
+.hero-seal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-brand-700);
+  color: #faf9f6;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.hero-caption {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-stone-500);
+}
+.hero-caption span:last-child {
+  color: var(--color-brand-700);
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal
+--------------------------------------------------------------------------- */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .reveal-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Hero Ken Burns zoom */
-@keyframes heroZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+/* ---------------------------------------------------------------------------
+   Cards — quiet, hairline, parchment
+--------------------------------------------------------------------------- */
+.card {
+  background: var(--color-stone-50);
+  border: 1px solid var(--color-stone-200);
 }
-.hero-zoom {
-  animation: heroZoom 10s ease-out forwards;
+.card-img img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.card-img:hover img {
+  transform: scale(1.045);
+}
+
+.dest-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.dest-card:hover img {
+  transform: scale(1.06);
 }
 
 /* FAQ accordion */
-.faq-item button { cursor: pointer; width: 100%; text-align: left; }
-.faq-item .faq-answer { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
-.faq-item.open .faq-answer { max-height: 600px; }
-.faq-item.open > button > svg { transform: rotate(180deg); }
+.faq-item button {
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.faq-item .faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+.faq-item.open .faq-answer {
+  max-height: 600px;
+}
+.faq-item.open > button > svg {
+  transform: rotate(180deg);
+}
 
-/* Destination card hover */
-.dest-card img { transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
-.dest-card:hover img { transform: scale(1.06); }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Anchor jump offset for the fixed nav */
+section[id] {
+  scroll-margin-top: 5rem;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-zoom { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .dest-card img { transition: none; }
+  .card-img img { transition: none; }
+  .loading-veil .loading-mark { animation: none; }
 }

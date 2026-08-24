@@ -76,33 +76,34 @@ const matchers: Matcher[] = [
 
 const bySlug = Object.fromEntries(destinations.map((d) => [d.slug, d]));
 ---
-<section id="matcher" class="py-20 md:py-28 bg-stone-950">
+<section id="matcher" class="py-20 md:py-28 bg-stone-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white pb-1">
+      <p class="kicker mb-4">Find your match</p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
         Which Hubei is yours?
       </h2>
-      <p class="text-stone-400 text-lg mt-4 leading-relaxed max-w-2xl">
-        Pick the traveler you are and the route mostly writes itself. Six types, one of them is you.
+      <p class="text-stone-500 text-lg mt-4 leading-relaxed max-w-2xl">
+        Six traveler types — one of them is you.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {matchers.map((m, i) => (
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:border-brand-500/50 transition-colors">
+        <div class="bg-white border border-stone-200 rounded-2xl p-6 flex flex-col hover:border-brand-300 transition-colors">
           <div class="flex items-center gap-3">
             <span class="w-8 h-8 rounded-full bg-brand-700 text-white text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
             <div>
-              <h3 class="font-bold text-white leading-tight">{m.label}</h3>
-              <p class="text-brand-300 text-xs mt-0.5">{m.tagline}</p>
+              <h3 class="font-bold text-stone-900 leading-tight">{m.label}</h3>
+              <p class="text-brand-700 text-xs mt-0.5">{m.tagline}</p>
             </div>
           </div>
-          <p class="text-stone-300 text-sm font-medium mt-4">{m.route}</p>
-          <p class="text-stone-500 text-xs mt-1">{m.days}</p>
-          <p class="text-stone-400 text-sm mt-3 leading-relaxed flex-1">{m.reason}</p>
+          <p class="text-stone-700 text-sm font-medium mt-4">{m.route}</p>
+          <p class="text-stone-400 text-xs mt-1">{m.days}</p>
+          <p class="text-stone-600 text-sm mt-3 leading-relaxed flex-1">{m.reason}</p>
           <div class="flex flex-wrap gap-1.5 mt-4">
             {m.slugs.map((slug) => (
-              <span class="px-2.5 py-1 bg-white/10 text-stone-300 text-xs rounded-full">{bySlug[slug].name}</span>
+              <span class="px-2.5 py-1 bg-stone-100 text-stone-600 text-xs rounded-full">{bySlug[slug].name}</span>
             ))}
           </div>
         </div>

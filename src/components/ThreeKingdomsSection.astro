@@ -38,35 +38,36 @@ const stops = [
   },
 ];
 ---
-<section id="three-kingdoms" class="py-20 md:py-28 bg-stone-950">
+<section id="three-kingdoms" class="py-20 md:py-28 bg-stone-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-14">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white pb-1">
+      <p class="kicker mb-4">A themed route</p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
         The Three Kingdoms trail
       </h2>
-      <p class="text-brand-100/80 text-lg mt-4 leading-relaxed max-w-2xl">
-        More than 70 of the Romance of the Three Kingdoms' 120 chapters unfold in Hubei. If you know the story — or have played <span class="text-white font-semibold">Total War: Three Kingdoms</span> or <span class="text-white font-semibold">Dynasty Warriors</span> — this is the province where it actually happened. Follow the trail in four stops.
+      <p class="text-stone-600 text-lg mt-4 leading-relaxed max-w-2xl">
+        More than 70 of the Romance's 120 chapters unfold in Hubei. Follow the trail in four stops.
       </p>
     </div>
 
-    <div class="relative border-l-2 border-dashed border-brand-700/60 pl-8 space-y-10">
+    <div class="relative border-l-2 border-dashed border-brand-400 pl-8 space-y-10">
       {stops.map((s) => (
         <div class="relative">
-          <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-2 border-brand-950"></span>
+          <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-2 border-white"></span>
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             <div class="lg:col-span-4">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-300">{s.year}</p>
-              <h3 class="text-xl font-bold text-white mt-1">{s.name} <span class="text-white/50 font-medium text-base">{s.chinese}</span></h3>
-              <p class="text-brand-200 font-medium text-sm mt-1">{s.event}</p>
-              <p class="inline-flex items-center gap-1.5 text-xs text-white/60 mt-3">
+              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">{s.year}</p>
+              <h3 class="text-xl font-bold text-stone-900 mt-1">{s.name} <span class="text-stone-400 font-medium text-base">{s.chinese}</span></h3>
+              <p class="text-brand-700 font-medium text-sm mt-1">{s.event}</p>
+              <p class="inline-flex items-center gap-1.5 text-xs text-stone-500 mt-3">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 {s.days}
               </p>
             </div>
             <div class="lg:col-span-8">
-              <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+              <div class="bg-white border border-stone-200 rounded-2xl overflow-hidden">
                 <img src={s.img} alt={`${s.name} ${s.chinese}`} class="w-full h-48 object-cover" loading="lazy" decoding="async" />
-                <p class="p-5 text-white/75 text-sm leading-relaxed">{s.body}</p>
+                <p class="p-5 text-stone-600 text-sm leading-relaxed">{s.body}</p>
               </div>
             </div>
           </div>
@@ -74,9 +75,9 @@ const stops = [
       ))}
     </div>
 
-    <div class="mt-10 bg-white/5 border border-white/10 rounded-2xl p-6">
-      <p class="text-brand-100 text-sm md:text-base leading-relaxed">
-        <span class="font-semibold text-white">Route it:</span> Xiangyang (Longzhong) → Wudang can share a day, then ride the rail east to Jingzhou and Wuhan, and dip south to Chibi. A Three Kingdoms loop from Wuhan takes 3-4 days by high-speed rail.
+    <div class="mt-10 bg-brand-50 border border-brand-200 rounded-2xl p-6">
+      <p class="text-stone-700 text-sm md:text-base leading-relaxed">
+        <span class="font-semibold text-brand-800">Route it:</span> Xiangyang (Longzhong) → Wudang can share a day, then ride the rail east to Jingzhou and Wuhan, and dip south to Chibi. A Three Kingdoms loop from Wuhan takes 3-4 days by high-speed rail.
       </p>
     </div>
   </div>
