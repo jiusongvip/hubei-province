@@ -50,6 +50,13 @@ const routes = [
       </div>
       <div class="overflow-x-auto">
         <table class="w-full min-w-[560px] text-left text-sm">
+          <thead>
+            <tr>
+              <th class="sr-only">Route</th>
+              <th class="sr-only">Travel time</th>
+              <th class="sr-only">Train type</th>
+            </tr>
+          </thead>
           <tbody class="divide-y divide-stone-100">
             {routes.map((r) => (
               <tr class="hover:bg-brand-50/40">

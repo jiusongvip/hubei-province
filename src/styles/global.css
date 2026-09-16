@@ -9,8 +9,8 @@
   --color-stone-100: #f3f1eb;
   --color-stone-200: #e4e0d6;
   --color-stone-300: #cdc6b7;
-  --color-stone-400: #a49d8e;
-  --color-stone-500: #7c766a;
+  --color-stone-400: #746e61;
+  --color-stone-500: #6b6559;
   --color-stone-600: #5e5950;
   --color-stone-700: #453f38;
   --color-stone-800: #2d2a25;
@@ -217,7 +217,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.7s ease, visibility 0.7s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .loading-veil.done {
   opacity: 0;

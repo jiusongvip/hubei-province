@@ -128,12 +128,20 @@ const pageSchema = {
   ogType="website"
 >
   <slot name="head">
-    <link rel="preload" as="image" href="/images/hubei-hero.webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hubei-hero.webp"
+      imagesrcset="/images/hubei-hero-800.webp 800w, /images/hubei-hero.webp 1600w"
+      imagesizes="(max-width: 800px) 92vw, 600px"
+      fetchpriority="high"
+    />
     <script type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>
   </slot>
 
   <Nav />
-  <HeroSection />
+  <main id="main-content">
+    <HeroSection />
   <PageTOC />
   <QuickFacts />
   <IsHubeiWorthIt />
@@ -168,5 +176,6 @@ const pageSchema = {
   <FAQSection />
   <ChecklistSection />
   <CTASection />
+  </main>
   <Footer />
 </BaseLayout>

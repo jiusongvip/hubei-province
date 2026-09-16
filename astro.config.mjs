@@ -6,7 +6,15 @@ export default defineConfig({
   site: "https://www.hubei-province.com",
   trailingSlash: "always",
   server: { port: 4330 },
-  integrations: [sitemap({ lastmod: new Date("2026-08-20") })],
+  build: {
+    inlineStylesheets: "always",
+  },
+  integrations: [
+    sitemap({
+      lastmod: new Date("2026-08-20"),
+      filter: (page) => !page.includes("/privacy/"),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

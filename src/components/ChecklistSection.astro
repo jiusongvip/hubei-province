@@ -44,8 +44,10 @@ const groups = [
           <ul class="space-y-3">
             {g.items.map((it) => (
               <li class="flex gap-3 items-start">
-                <input type="checkbox" class="mt-1 w-4 h-4 accent-brand-700 shrink-0" />
-                <span class="text-stone-700 text-sm md:text-base leading-relaxed">{it}</span>
+                <label class="flex gap-3 items-start cursor-pointer">
+                  <input type="checkbox" class="mt-1 w-4 h-4 accent-brand-700 shrink-0" />
+                  <span class="text-stone-700 text-sm md:text-base leading-relaxed">{it}</span>
+                </label>
               </li>
             ))}
           </ul>
