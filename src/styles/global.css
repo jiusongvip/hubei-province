@@ -253,6 +253,15 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Offscreen section rendering is skipped so the first paint on throttled
+   mobile does not wait for layout/style of the whole page.
+--------------------------------------------------------------------------- */
+main > section:not(.hero-stage) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* ---------------------------------------------------------------------------
    Hero stage — editorial split: copy left, framed photograph right
 --------------------------------------------------------------------------- */
 .hero-stage {
