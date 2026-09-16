@@ -49,6 +49,8 @@ const orgSchema = {
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <slot name="head" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0ZTMPTCQV"></script>
     <script is:inline>
@@ -59,7 +61,6 @@ const orgSchema = {
       gtag('config', 'G-S0ZTMPTCQV');
     </script>
 
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
@@ -83,8 +84,6 @@ const orgSchema = {
     <meta name="twitter:image" content={ogImageUrl} />
 
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
-
-    <slot name="head" />
   </head>
   <body>
     <div class="loading-veil" id="loading-veil" aria-hidden="true">
@@ -113,8 +112,8 @@ const orgSchema = {
       var dismiss = function () { veil.classList.add("done"); };
       if (reduce) { dismiss(); }
       else {
-        setTimeout(dismiss, 350);
-        window.addEventListener("load", function () { setTimeout(dismiss, 150); });
+        requestAnimationFrame(function () { setTimeout(dismiss, 120); });
+        window.addEventListener("load", function () { setTimeout(dismiss, 100); });
       }
     }
 
