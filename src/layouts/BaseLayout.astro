@@ -4,7 +4,6 @@ import "@fontsource/manrope/latin-400.css";
 import "@fontsource/manrope/latin-500.css";
 import "@fontsource/manrope/latin-600.css";
 import "@fontsource/manrope/latin-700.css";
-import "@fontsource/manrope/latin-800.css";
 import "@fontsource/fraunces/latin-400.css";
 import "@fontsource/fraunces/latin-500.css";
 import "@fontsource/fraunces/latin-600.css";
@@ -61,14 +60,25 @@ const orgSchema = {
   <head>
     <meta charset="UTF-8" />
     <slot name="head" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0ZTMPTCQV"></script>
+    <!-- Google tag (gtag.js) — deferred to idle to keep startup bandwidth for LCP -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-S0ZTMPTCQV');
+      (function () {
+        var inject = function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S0ZTMPTCQV';
+          document.head.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(inject, { timeout: 4000 });
+        } else {
+          window.addEventListener('load', function () { setTimeout(inject, 100); });
+        }
+      })();
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -109,8 +119,8 @@ const orgSchema = {
         var veil = document.getElementById("loading-veil");
         if (!veil) return;
         if (reduce) { veil.classList.add("done"); return; }
-        requestAnimationFrame(function () { setTimeout(function () { veil.classList.add("done"); }, 120); });
-        window.addEventListener("load", function () { setTimeout(function () { veil.classList.add("done"); }, 100); });
+        requestAnimationFrame(function () { veil.classList.add("done"); });
+        window.addEventListener("load", function () { veil.classList.add("done"); });
       })();
     </script>
 
