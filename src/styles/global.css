@@ -254,11 +254,15 @@
 
 /* ---------------------------------------------------------------------------
    Offscreen section rendering is skipped so the first paint on throttled
-   mobile does not wait for layout/style of the whole page.
+   mobile does not wait for layout/style of the whole page. Desktop viewports
+   fit many sections near the fold, where the size estimate causes layout
+   shifts, so this is scoped to small screens.
 --------------------------------------------------------------------------- */
-main > section:not(.hero-stage) {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 500px;
+@media (max-width: 800px) {
+  main > section:not(.hero-stage) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
 }
 
 /* ---------------------------------------------------------------------------
