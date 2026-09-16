@@ -160,9 +160,7 @@ const pageSchema = {
   description="Plan your Hubei trip beyond Wuhan: Wudang Mountains, Shennongjia forest, Three Gorges Dam, Enshi Grand Canyon, hot dry noodles and Three Kingdoms history."
   ogType="website"
 >
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>
-  </Fragment>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>
 
   <Nav />
   <main id="main-content">
