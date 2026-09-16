@@ -92,6 +92,16 @@ const orgSchema = {
         <p class="loading-word">Hubei Guide</p>
       </div>
     </div>
+    <script is:inline>
+      (function () {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var veil = document.getElementById("loading-veil");
+        if (!veil) return;
+        if (reduce) { veil.classList.add("done"); return; }
+        requestAnimationFrame(function () { setTimeout(function () { veil.classList.add("done"); }, 120); });
+        window.addEventListener("load", function () { setTimeout(function () { veil.classList.add("done"); }, 100); });
+      })();
+    </script>
 
     <div id="reading-progress" style="position:fixed;top:0;left:0;height:2px;background:#b8432b;z-index:9999;width:0%;transition:width 0.1s linear;"></div>
     <button id="back-to-top" style="position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;background:rgba(251,248,242,0.92);border:1px solid #e6ddcb;box-shadow:0 4px 18px rgba(26,23,18,0.12);cursor:pointer;z-index:9998;display:none;align-items:center;justify-content:center;transition:all 0.3s ease;" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -105,17 +115,6 @@ const orgSchema = {
 <script is:inline>
   (function () {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Loading ritual
-    var veil = document.getElementById("loading-veil");
-    if (veil) {
-      var dismiss = function () { veil.classList.add("done"); };
-      if (reduce) { dismiss(); }
-      else {
-        requestAnimationFrame(function () { setTimeout(dismiss, 120); });
-        window.addEventListener("load", function () { setTimeout(dismiss, 100); });
-      }
-    }
 
     var bar = document.getElementById("reading-progress");
     var btn = document.getElementById("back-to-top");
