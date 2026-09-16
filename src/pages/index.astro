@@ -46,14 +46,22 @@ const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://www.hubei-province.com/#website",
+      url: "https://www.hubei-province.com",
+      name: "Hubei Province Travel Guide",
+      inLanguage: "en",
+      publisher: { "@id": "https://www.hubei-province.com/#organization" },
+    },
+    {
       "@type": "WebPage",
       "@id": "https://www.hubei-province.com/#webpage",
       url: "https://www.hubei-province.com",
-      name: "Hubei Province Travel Guide | 2026 Planning Beyond Wuhan",
+      name: "Hubei Province Travel Guide",
       description:
         "Plan your trip to Hubei Province, China. Discover Wuhan's Yellow Crane Tower, the Taoist Wudang Mountains, Shennongjia's forest, the Three Gorges Dam, Enshi Grand Canyon, hot dry noodles and Three Kingdoms history, with itineraries, budgets and insider tips.",
       inLanguage: "en",
-      isPartOf: { "@id": "https://www.hubei-province.com/#organization" },
+      isPartOf: { "@id": "https://www.hubei-province.com/#website" },
       about: { "@id": "https://www.hubei-province.com/#destination" },
     },
     {
@@ -63,7 +71,12 @@ const pageSchema = {
       jobTitle: "Lead Writer & Hubei Specialist",
       description:
         "Independent travel writer who has crossed Hubei by high-speed rail, Yangtze ferry and mountain bus across more than a dozen visits.",
-      worksFor: { "@id": "https://www.hubei-province.com/#organization" },
+      worksFor: {
+        "@id": "https://www.hubei-province.com/#organization",
+        "@type": "Organization",
+        name: "Hubei Province Travel Guide",
+        url: "https://www.hubei-province.com",
+      },
       url: "https://www.hubei-province.com/about/",
       knowsAbout: ["Hubei Province", "Wuhan", "Wudang Mountains", "Three Gorges", "Shennongjia", "Enshi Grand Canyon"],
     },
@@ -73,7 +86,12 @@ const pageSchema = {
       description:
         "Plan your trip to Hubei Province, China. Discover Wuhan's Yellow Crane Tower, the Taoist Wudang Mountains, Shennongjia's forest, the Three Gorges Dam, Enshi Grand Canyon, hot dry noodles and Three Kingdoms history, with itineraries, budgets and insider tips.",
       author: { "@id": "https://www.hubei-province.com/#author" },
-      publisher: { "@id": "https://www.hubei-province.com/#organization" },
+      publisher: {
+        "@id": "https://www.hubei-province.com/#organization",
+        "@type": "Organization",
+        name: "Hubei Province Travel Guide",
+        url: "https://www.hubei-province.com",
+      },
       isPartOf: { "@type": "WebPage", "@id": "https://www.hubei-province.com/#webpage" },
       url: "https://www.hubei-province.com",
       inLanguage: "en",

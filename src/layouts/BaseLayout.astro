@@ -24,7 +24,7 @@ export interface Props {
 const { title, description, ogImage, ogType = "website", noindex = false } = Astro.props;
 
 const siteName = "Hubei Province Travel Guide";
-const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+const fullTitle = title.includes(siteName) ? title : `${siteName} | ${title}`;
 const canonicalURL =
   Astro.url.pathname === "/"
     ? new URL("/", Astro.site).href.replace(/\/$/, "")
