@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Terms of Use"
+  description="Terms of use for the Hubei Province Travel Guide: content is provided for general information, prices and policies change, and linked official sources govern your actual trip."
+  noindex={true}
+>
+  <Nav solid />
+  <main class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-stone-900 pb-1">Terms of Use</h1>
+      <div class="mt-8 space-y-5 text-stone-600 leading-relaxed">
+        <p>
+          The Hubei Province Travel Guide is an independent, free information site. By using it you accept these terms.
+        </p>
+        <h2 class="text-xl font-bold text-stone-900 mt-8">Information as-is</h2>
+        <p>
+          Prices, schedules, visa rules and opening hours in this guide are our best observations and cross-checks as of August 2026,
+          but they change without notice. Always confirm against the official sources we link to (visa policy, railway booking,
+          attraction pages) before you book or travel. We are not responsible for losses caused by acting on outdated information.
+        </p>
+        <h2 class="text-xl font-bold text-stone-900 mt-8">No bookings, no affiliation</h2>
+        <p>
+          We do not sell tickets, rooms or tours, and we are not affiliated with any tourism board, booking platform or government body.
+          Any third-party brand names appear only to identify official information sources.
+        </p>
+        <h2 class="text-xl font-bold text-stone-900 mt-8">Content rights</h2>
+        <p>
+          The text of this guide is our original work. You may quote short passages with a link back to this page;
+          please do not republish whole sections. Photographs are credited to their Wikimedia Commons authors and licenses in the footer.
+        </p>
+        <h2 class="text-xl font-bold text-stone-900 mt-8">External links</h2>
+        <p>
+          We link to third-party sites for official data. We do not control their content or availability and accept no responsibility for them.
+        </p>
+        <h2 class="text-xl font-bold text-stone-900 mt-8">Changes</h2>
+        <p>
+          We may update these terms as the site evolves. Last updated: August 2026.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

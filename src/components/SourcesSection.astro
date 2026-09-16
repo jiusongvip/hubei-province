@@ -1,0 +1,67 @@
+---
+const sources = [
+  {
+    org: "UNESCO World Heritage Centre",
+    url: "https://whc.unesco.org/en/list/705/",
+    label: "Ancient Building Complex in the Wudang Mountains (inscribed 1994, criteria i, ii, vi)",
+    quote:
+      "The ancient buildings in the Wudang Mountains represent the highest standards in Chinese art and architecture over a period of nearly one thousand years.",
+  },
+  {
+    org: "UNESCO / Wikipedia",
+    url: "https://en.wikipedia.org/wiki/Shennongjia",
+    label: "Hubei Shennongjia, World Heritage Site since 17 July 2016 (ref. 1509)",
+    quote:
+      "On July 17, 2016, Hubei Shennongjia was listed as a World Heritage Site, the 50th World Heritage Site in China, because of its exceptional floral and faunal biodiversity.",
+  },
+  {
+    org: "Wikipedia",
+    url: "https://en.wikipedia.org/wiki/Three_Gorges_Dam",
+    label: "Three Gorges Dam — specifications and generation record",
+    quote:
+      "It is also the world's largest power station by installed capacity (22,500 MW); it generates 95±20 TWh of electricity per year on average.",
+  },
+  {
+    org: "China Railway 12306 (official booking site)",
+    url: "https://www.12306.cn/en/",
+    label: "High-speed rail timetables and ticketing for Wuhan, Xiangyang, Wudang, Yichang and Enshi",
+  },
+  {
+    org: "National Immigration Administration of China",
+    url: "https://en.nia.gov.cn/",
+    label: "Visa-free entry and 240-hour transit policies for foreign travelers",
+  },
+];
+---
+<section id="sources" class="py-20 md:py-28 bg-stone-50 border-t border-stone-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 pb-1">
+        Sources &amp; references
+      </h2>
+      <p class="text-stone-600 text-lg mt-4 leading-relaxed">
+        Our fact claims are checked against official and archival sources, not copied from other travel sites. The key ones:
+      </p>
+    </div>
+    <ol class="space-y-6">
+      {sources.map((s) => (
+        <li class="bg-white border border-stone-200 rounded-2xl p-6">
+          <p class="text-sm font-semibold text-stone-900">
+            {s.org} —{" "}
+            <a href={s.url} rel="noopener" class="text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800">{s.label}</a>
+          </p>
+          {s.quote && (
+            <blockquote class="mt-3 pl-4 border-l-2 border-brand-300 text-stone-600 text-sm leading-relaxed italic">
+              "{s.quote}"
+            </blockquote>
+          )}
+        </li>
+      ))}
+    </ol>
+    <p class="text-sm text-stone-600 mt-8 leading-relaxed">
+      Firsthand observation is our primary source; the references above back specific claims (heritage listings, the dam's
+      22,500 MW capacity, ticketing rules and visa policy). Visa and ticket rules change — verify against the official
+      sources before booking. Photographs are credited to Wikimedia Commons in the footer.
+    </p>
+  </div>
+</section>

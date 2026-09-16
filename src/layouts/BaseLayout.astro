@@ -23,8 +23,8 @@ export interface Props {
 
 const { title, description, ogImage, ogType = "website", noindex = false } = Astro.props;
 
-const siteName = "Hubei Province";
-const fullTitle = title.includes("Hubei") ? title : `${title} | ${siteName}`;
+const siteName = "Hubei Province Travel Guide";
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 const canonicalURL =
   Astro.url.pathname === "/"
     ? new URL("/", Astro.site).href.replace(/\/$/, "")
@@ -37,12 +37,22 @@ const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : defaultOgImage;
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.hubei-province.com/#organization",
   name: "Hubei Province Travel Guide",
+  alternateName: "Hubei Guide",
   url: "https://www.hubei-province.com",
   description:
     "Independent travel guide to Hubei Province, China. Discover Wuhan's Yellow Crane Tower, the Taoist Wudang Mountains, Shennongjia's primeval forest, the Three Gorges Dam, Enshi Grand Canyon, hot dry noodles and Three Kingdoms history.",
   logo: "https://www.hubei-province.com/favicon.svg",
   foundingDate: "2026",
+  knowledgeAbout: [
+    { "@type": "Thing", name: "Hubei Province" },
+    { "@type": "Thing", name: "Wuhan" },
+    { "@type": "Thing", name: "Wudang Mountains" },
+    { "@type": "Thing", name: "Three Gorges" },
+    { "@type": "Thing", name: "Shennongjia" },
+    { "@type": "Thing", name: "Enshi Grand Canyon" },
+  ],
 };
 ---
 
@@ -69,6 +79,7 @@ const orgSchema = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {!noindex && <link rel="alternate" hreflang="en" href={canonicalURL} />}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={canonicalURL} />}
 
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
